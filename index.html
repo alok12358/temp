@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="hi-IN">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indian Inquilab Party (I.I.P) – MLA's Official Website</title>
+    <title>इंडियन इंक़लाब पार्टी (I.I.P) – विधायक की आधिकारिक वेबसाइट</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Inter Font -->
@@ -12,8 +12,10 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8;
-            /* Softer, slightly bluish-gray background */
+            /* Indian National Flag gradient colors: Saffron, White, Green */
+            background: linear-gradient(to bottom, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%);
+            background-attachment: fixed;
+            /* Ensures the gradient covers the entire viewport */
             color: #333;
             /* Default text color */
         }
@@ -221,7 +223,7 @@
                         <polyline points="10 17 15 12 10 7" />
                         <line x1="15" x2="3" y1="12" y2="12" />
                     </svg>
-                    <span>Login</span>
+                    <span>लॉग इन करें</span>
                 </a>
             </div>
             <div class="flex items-center hover:text-blue-300">
@@ -231,7 +233,7 @@
                     <path d="M12 12.01V12" />
                     <path d="M18.364 17.364A9 9 0 1 0 5.636 6.636L12 1l6.364 5.636z" />
                 </svg>
-                <span>H-376, Rd No. 11, Shree Krishna Nagar, Nr Kidwaipuri PO, Patna, Bihar Pincode-800001</span>
+                <span>H-376, रोड नं. 11, श्री कृष्णा नगर, किदवईपुरी पीओ के पास, पटना, बिहार पिनकोड-800001</span>
             </div>
         </div>
     </div>
@@ -242,10 +244,10 @@
         <nav class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <div class="flex items-center space-x-3">
                 <!-- Placeholder for Logo - Replaces MLA's Name text as per screenshot -->
-                <img src="https://placehold.co/60x60/FFFFFF/007bff?text=IIP+Logo" alt="Indian Inquilab Party Logo"
+                <img src="https://placehold.co/60x60/FFFFFF/007bff?text=IIP+Logo" alt="इंडियन इंक़लाब पार्टी लोगो"
                     class="rounded-full shadow-md" />
                 <div class="flex flex-col">
-                    <a href="#" class="text-2xl font-extrabold tracking-tight">Indian Inquilab Party (I.I.P)</a>
+                    <a href="#" class="text-2xl font-extrabold tracking-tight">इंडियन इंक़लाब पार्टी (I.I.P)</a>
                     <span class="text-sm text-blue-200">हर सदस्य क्रांतिकारी, हर क्रांतिकारी नेतृत्व का हकदार !</span>
                 </div>
             </div>
@@ -272,33 +274,34 @@
             <!-- Desktop Navigation -->
             <div id="navbar-desktop-menu"
                 class="hidden md:flex mt-4 md:mt-0 space-y-2 md:space-y-0 md:space-x-8 flex-col md:flex-row items-center font-semibold text-lg">
-                <a href="#home" class="hover:text-blue-300 transition-colors duration-300">Home</a>
-                <a href="#about" class="hover:text-blue-300 transition-colors duration-300">About</a>
-                <a href="#get-involved" class="hover:text-blue-300 transition-colors duration-300">Get Involved</a>
-                <a href="#media" class="hover:text-blue-300 transition-colors duration-300">Media</a>
-                <a href="#election" class="hover:text-blue-300 transition-colors duration-300">Election</a>
-                <a href="#gallery" class="hover:text-blue-300 transition-colors duration-300">Gallery</a>
-                <a href="#contact" class="hover:text-blue-300 transition-colors duration-300">Contact</a>
+                <a href="#home" class="hover:text-blue-300 transition-colors duration-300">होम</a>
+                <a href="#about" class="hover:text-blue-300 transition-colors duration-300">हमारे बारे में</a>
+                <a href="#get-involved" class="hover:text-blue-300 transition-colors duration-300">जुड़ें</a>
+                <a href="#media" class="hover:text-blue-300 transition-colors duration-300">मीडिया</a>
+                <a href="#election" class="hover:text-blue-300 transition-colors duration-300">चुनाव</a>
+                <a href="#gallery" class="hover:text-blue-300 transition-colors duration-300">गैलरी</a>
+                <a href="#contact" class="hover:text-blue-300 transition-colors duration-300">संपर्क करें</a>
             </div>
         </nav>
         <!-- Mobile Navigation (hidden by default, shown by JS) -->
         <div id="navbar-mobile-menu" class="md:hidden bg-blue-800 pt-4 pb-2 px-6 hidden">
             <div class="flex flex-col items-center space-y-2 text-lg font-semibold">
                 <a href="#home"
-                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Home</a>
+                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">होम</a>
                 <a href="#about"
-                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">About</a>
+                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">हमारे
+                    बारे में</a>
                 <a href="#get-involved"
-                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Get
-                    Involved</a>
+                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">जुड़ें</a>
                 <a href="#media"
-                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Media</a>
+                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">मीडिया</a>
                 <a href="#election"
-                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Election</a>
+                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">चुनाव</a>
                 <a href="#gallery"
-                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Gallery</a>
+                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">गैलरी</a>
                 <a href="#contact"
-                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Contact</a>
+                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">संपर्क
+                    करें</a>
             </div>
         </div>
     </header>
@@ -322,12 +325,12 @@
                         इंडियन इंक़लाब पार्टी उस क्रांति की लो है, जो न्याय, समानता और स्वराज की भावना को फिर से जलाती
                         है। आइए, जुड़िए इस जन आंदोलन से जहाँ हर आवाज़ मायने रखती है, हर कदम बदलाव की ओर बढ़ता है।
                     </p>
-                    <img src="https://placehold.co/800x450/4CAF50/FFFFFF?text=Main+Rally+Image" alt="Main Rally"
+                    <img src="https://placehold.co/800x450/4CAF50/FFFFFF?text=Main+Rally+Image" alt="मुख्य रैली चित्र"
                         class="rounded-lg shadow-xl mb-4 w-full h-auto max-h-[450px] object-cover">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-                        <img src="https://placehold.co/400x250/FFC107/FFFFFF?text=Sub+Image+1" alt="Sub Image 1"
+                        <img src="https://placehold.co/400x250/FFC107/FFFFFF?text=Sub+Image+1" alt="उप चित्र 1"
                             class="rounded-lg shadow-md w-full h-auto object-cover">
-                        <img src="https://placehold.co/400x250/2196F3/FFFFFF?text=Sub+Image+2" alt="Sub Image 2"
+                        <img src="https://placehold.co/400x250/2196F3/FFFFFF?text=Sub+Image+2" alt="उप चित्र 2"
                             class="rounded-lg shadow-md w-full h-auto object-cover">
                     </div>
                 </div>
@@ -338,7 +341,7 @@
                     <div
                         class="bg-blue-100 p-6 rounded-lg shadow-md border-b-4 border-blue-500 hover:shadow-lg transition-all duration-300">
                         <div class="flex justify-between items-center mb-3">
-                            <h3 class="text-xl font-bold text-blue-800">Join Us</h3>
+                            <h3 class="text-xl font-bold text-blue-800">हमसे जुड़ें</h3>
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-users text-blue-500">
@@ -348,10 +351,10 @@
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                             </svg>
                         </div>
-                        <p class="text-gray-700 text-sm mb-4">Become a part of our movement for change.</p>
+                        <p class="text-gray-700 text-sm mb-4">बदलाव के लिए हमारे आंदोलन का हिस्सा बनें।</p>
                         <button id="membershipBtnHero"
                             class="w-full bg-blue-600 text-white font-semibold py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">
-                            View &rarr;
+                            देखें &rarr;
                         </button>
                     </div>
 
@@ -359,7 +362,7 @@
                     <div
                         class="bg-green-100 p-6 rounded-lg shadow-md border-b-4 border-green-500 hover:shadow-lg transition-all duration-300">
                         <div class="flex justify-between items-center mb-3">
-                            <h3 class="text-xl font-bold text-green-800">Our Event</h3>
+                            <h3 class="text-xl font-bold text-green-800">हमारे कार्यक्रम</h3>
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-calendar-check text-green-500">
@@ -370,10 +373,10 @@
                                 <path d="m9 16 2 2 4-4" />
                             </svg>
                         </div>
-                        <p class="text-gray-700 text-sm mb-4">Stay updated with our upcoming rallies and meetings.</p>
+                        <p class="text-gray-700 text-sm mb-4">हमारी आने वाली रैलियों और बैठकों से अपडेट रहें।</p>
                         <a href="#events"
                             class="block w-full bg-green-600 text-white font-semibold py-2 text-center rounded-full hover:bg-green-700 transition-colors duration-300">
-                            View &rarr;
+                            देखें &rarr;
                         </a>
                     </div>
 
@@ -381,7 +384,7 @@
                     <div
                         class="bg-purple-100 p-6 rounded-lg shadow-md border-b-4 border-purple-500 hover:shadow-lg transition-all duration-300">
                         <div class="flex justify-between items-center mb-3">
-                            <h3 class="text-xl font-bold text-purple-800">Donate Us</h3>
+                            <h3 class="text-xl font-bold text-purple-800">हमें दान दें</h3>
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-piggy-bank text-purple-500">
@@ -391,10 +394,10 @@
                                 <path d="M2 13v-1c0-.5.5-1 1-1h19" />
                             </svg>
                         </div>
-                        <p class="text-gray-700 text-sm mb-4">Support our mission with your valuable contribution.</p>
+                        <p class="text-gray-700 text-sm mb-4">अपने बहुमूल्य योगदान से हमारे मिशन का समर्थन करें।</p>
                         <a href="payment.html"
                             class="block w-full bg-purple-600 text-white font-semibold py-2 text-center rounded-full hover:bg-purple-700 transition-colors duration-300">
-                            DONATE &rarr;
+                            दान दें &rarr;
                         </a>
                     </div>
                 </div>
@@ -403,29 +406,29 @@
 
         <!-- About MLA Section -->
         <section id="about" class="container mx-auto py-20 px-6 md:px-12">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">About [MLA's Name]</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">विधायक [MLA's Name] के बारे में</h2>
             <div
                 class="flex flex-col md:flex-row items-center gap-10 bg-white p-10 rounded-3xl shadow-xl border border-blue-100">
                 <div class="md:w-1/3 flex-shrink-0">
-                    <img src="https://placehold.co/350x350/3B82F6/FFFFFF?text=MLA+Photo" alt="MLA's Photo"
+                    <img src="https://placehold.co/350x350/3B82F6/FFFFFF?text=MLA+Photo" alt="विधायक की फोटो"
                         class="rounded-full w-60 h-60 mx-auto object-cover border-6 border-blue-500 shadow-lg transform transition-transform duration-500 hover:scale-105">
                 </div>
                 <div class="md:w-2/3 text-xl leading-relaxed text-gray-700">
                     <p class="mb-5">
-                        [MLA's Name] is a dedicated public servant with a deep-rooted commitment to the well-being and
-                        prosperity of our community. Born and raised in [Constituency Name], [He/She] has always been
-                        passionate about addressing local challenges and advocating for sustainable development.
+                        [MLA's Name] हमारे समुदाय की भलाई और समृद्धि के लिए गहरी प्रतिबद्धता वाले एक समर्पित जनसेवक हैं।
+                        [Constituency Name] में जन्मे और पले-बढ़े, [वह/वे] हमेशा स्थानीय चुनौतियों का समाधान करने और सतत
+                        विकास की वकालत करने के प्रति जुनूनी रहे हैं।
                     </p>
                     <p class="mb-5">
-                        With a background in <span class="font-semibold text-blue-600">[mention field, e.g., social
-                            work, law, education]</span>, [MLA's Name] brings a unique perspective to public office.
-                        [He/She] believes in inclusive growth, ensuring that every citizen has access to quality
-                        education, healthcare, and economic opportunities.
+                        <span class="font-semibold text-blue-600">[क्षेत्र का उल्लेख करें, जैसे: समाज कार्य, कानून,
+                            शिक्षा]</span> में पृष्ठभूमि के साथ, [MLA's Name] सार्वजनिक पद पर एक अद्वितीय परिप्रेक्ष्य
+                        लाते हैं। [वह/वे] समावेशी विकास में विश्वास करते हैं, यह सुनिश्चित करते हुए कि प्रत्येक नागरिक
+                        को गुणवत्तापूर्ण शिक्षा, स्वास्थ्य सेवा और आर्थिक अवसर प्राप्त हों।
                     </p>
                     <p>
-                        Throughout [his/her] career, [MLA's Name] has tirelessly worked on initiatives ranging from
-                        environmental protection to enhancing public infrastructure, always striving to make
-                        [Constituency Name] a better place for all.
+                        अपने पूरे करियर में, [MLA's Name] ने पर्यावरण संरक्षण से लेकर सार्वजनिक बुनियादी ढांचे को बढ़ाने
+                        तक की पहलों पर अथक रूप से काम किया है, हमेशा [Constituency Name] को सभी के लिए एक बेहतर स्थान
+                        बनाने का प्रयास किया है।
                     </p>
                 </div>
             </div>
@@ -435,7 +438,7 @@
 
         <!-- Vision and Mission Section -->
         <section id="vision" class="container mx-auto py-20 px-6 md:px-12 bg-blue-50 rounded-3xl shadow-inner-lg">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Vision & Mission</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">हमारी दृष्टि और मिशन</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div
                     class="bg-white p-10 rounded-3xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300 border border-blue-100">
@@ -447,12 +450,12 @@
                             <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
                             <circle cx="12" cy="12" r="3" />
                         </svg>
-                        Vision
+                        दृष्टि
                     </h3>
                     <p class="text-xl leading-relaxed text-gray-700">
-                        To foster a vibrant, equitable, and progressive community where every individual can thrive,
-                        pursue their dreams, and contribute meaningfully to society. We envision a future built on
-                        strong values, sustainable practices, and boundless opportunities for all.
+                        एक जीवंत, न्यायसंगत और प्रगतिशील समुदाय को बढ़ावा देना जहाँ प्रत्येक व्यक्ति आगे बढ़ सके, अपने
+                        सपनों को पूरा कर सके और समाज में सार्थक योगदान दे सके। हम मजबूत मूल्यों, सतत प्रथाओं और सभी के
+                        लिए असीमित अवसरों पर निर्मित भविष्य की कल्पना करते हैं।
                     </p>
                 </div>
                 <div
@@ -469,16 +472,15 @@
                             <line x1="3" x2="3.01" y1="12" y2="12" />
                             <line x1="3" x2="3.01" y1="18" y2="18" />
                         </svg>
-                        Mission
+                        मिशन
                     </h3>
                     <ul class="list-disc list-inside text-xl leading-relaxed space-y-3 text-gray-700">
-                        <li>To advocate for policies that promote social justice, economic growth, and environmental
-                            sustainability.</li>
-                        <li>To ensure transparency and accountability in governance, building public trust.</li>
-                        <li>To empower citizens through accessible education, quality health, and advanced skill
-                            development programs.</li>
-                        <li>To build stronger communities through active participation, open dialogue, and collaborative
-                            initiatives.</li>
+                        <li>सामाजिक न्याय, आर्थिक विकास और पर्यावरणीय स्थिरता को बढ़ावा देने वाली नीतियों की वकालत करना।
+                        </li>
+                        <li>शासन में पारदर्शिता और जवाबदेही सुनिश्चित करना, जनविश्वास का निर्माण करना।</li>
+                        <li>सुलभ शिक्षा, गुणवत्तापूर्ण स्वास्थ्य और उन्नत कौशल विकास कार्यक्रमों के माध्यम से नागरिकों
+                            को सशक्त बनाना।</li>
+                        <li>सक्रिय भागीदारी, खुले संवाद और सहयोगात्मक पहलों के माध्यम से मजबूत समुदाय बनाना।</li>
                     </ul>
                 </div>
             </div>
@@ -488,7 +490,7 @@
 
         <!-- Get Involved Section - Mapped from the original nav link -->
         <section id="get-involved" class="container mx-auto py-20 px-6 md:px-12">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Get Involved</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">जुड़ें</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Join the Movement -->
                 <div
@@ -502,14 +504,14 @@
                         <path d="M14 10.5V8a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2.5" />
                         <path d="M14 17a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2z" />
                     </svg>
-                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Become a Member</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">सदस्य बनें</h3>
                     <p class="text-gray-700 leading-relaxed mb-6">
-                        Join our passionate team of volunteers and make a direct impact on community development. Your
-                        energy and skills are vital for our mission.
+                        हमारे उत्साही स्वयंसेवकों की टीम में शामिल हों और समुदाय के विकास पर सीधा प्रभाव डालें। आपकी
+                        ऊर्जा और कौशल हमारे मिशन के लिए महत्वपूर्ण हैं।
                     </p>
                     <button id="membershipBtnSection"
                         class="px-8 py-3 bg-gradient-to-r from-teal-400 to-green-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition-transform duration-300">
-                        Join Now
+                        अभी शामिल हों
                     </button>
                 </div>
                 <!-- Donate Now -->
@@ -521,14 +523,14 @@
                         <line x1="12" x2="12" y1="2" y2="22" />
                         <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                     </svg>
-                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Support Our Cause</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">हमारे कार्य का समर्थन करें</h3>
                     <p class="text-gray-700 leading-relaxed mb-6">
-                        Your financial contributions empower us to expand our initiatives and reach more people in need.
-                        Every donation, big or small, makes a difference.
+                        आपके वित्तीय योगदान से हमें अपनी पहलों का विस्तार करने और अधिक जरूरतमंद लोगों तक पहुंचने में मदद
+                        मिलती है। हर दान, चाहे छोटा हो या बड़ा, फर्क डालता है।
                     </p>
                     <a href="payment.html"
                         class="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition-transform duration-300">
-                        <span>Donate Now</span>
+                        <span>अभी दान दें</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-arrow-right ml-2">
@@ -544,15 +546,15 @@
 
         <!-- Our Members Section -->
         <section id="members" class="container mx-auto py-20 px-6 md:px-12 bg-blue-50 rounded-3xl shadow-inner-lg">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Esteemed Members</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">हमारे सम्मानित सदस्य</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Member Card 1 -->
                 <div
                     class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/150x150/60A5FA/FFFFFF?text=Prof+Raj" alt="Prof. K. Raj Sir"
+                    <img src="https://placehold.co/150x150/60A5FA/FFFFFF?text=Prof+Raj" alt="प्रोफेसर के. राज सर"
                         class="rounded-full w-36 h-36 mx-auto mb-4 object-cover border-4 border-blue-400">
-                    <h3 class="text-xl font-bold text-blue-800 mb-1">Prof. K. Raj Sir</h3>
-                    <p class="text-gray-600 text-sm">Spokesperson & Senior Leader</p>
+                    <h3 class="text-xl font-bold text-blue-800 mb-1">प्रोफेसर के. राज सर</h3>
+                    <p class="text-gray-600 text-sm">प्रवक्ता एवं वरिष्ठ नेता</p>
                     <div class="flex justify-center space-x-4 mt-4">
                         <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
                                 width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -581,10 +583,10 @@
                 <!-- Member Card 2 -->
                 <div
                     class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/150x150/BFDBFE/FFFFFF?text=Member+2" alt="Member Photo"
+                    <img src="https://placehold.co/150x150/BFDBFE/FFFFFF?text=Member+2" alt="सदस्य फोटो"
                         class="rounded-full w-36 h-36 mx-auto mb-4 object-cover border-4 border-blue-400">
-                    <h3 class="text-xl font-bold text-blue-800 mb-1">Er. I.P. Gupta Pan</h3>
-                    <p class="text-gray-600 text-sm">National President</p>
+                    <h3 class="text-xl font-bold text-blue-800 mb-1">ई. आई.पी. गुप्ता पान</h3>
+                    <p class="text-gray-600 text-sm">राष्ट्रीय अध्यक्ष</p>
                     <div class="flex justify-center space-x-4 mt-4">
                         <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
                                 width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -613,10 +615,10 @@
                 <!-- Member Card 3 -->
                 <div
                     class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/150x150/ADD8E6/FFFFFF?text=Member+3" alt="Member Photo"
+                    <img src="https://placehold.co/150x150/ADD8E6/FFFFFF?text=Member+3" alt="सदस्य फोटो"
                         class="rounded-full w-36 h-36 mx-auto mb-4 object-cover border-4 border-blue-400">
-                    <h3 class="text-xl font-bold text-blue-800 mb-1">Ravi Kumar</h3>
-                    <p class="text-gray-600 text-sm">State Coordinator</p>
+                    <h3 class="text-xl font-bold text-blue-800 mb-1">रवि कुमार</h3>
+                    <p class="text-gray-600 text-sm">राज्य समन्वयक</p>
                     <div class="flex justify-center space-x-4 mt-4">
                         <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
                                 width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -645,10 +647,10 @@
                 <!-- Member Card 4 -->
                 <div
                     class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/150x150/87CEEB/FFFFFF?text=Member+4" alt="Member Photo"
+                    <img src="https://placehold.co/150x150/87CEEB/FFFFFF?text=Member+4" alt="सदस्य फोटो"
                         class="rounded-full w-36 h-36 mx-auto mb-4 object-cover border-4 border-blue-400">
-                    <h3 class="text-xl font-bold text-blue-800 mb-1">Priya Sharma</h3>
-                    <p class="text-gray-600 text-sm">Youth Wing Head</p>
+                    <h3 class="text-xl font-bold text-blue-800 mb-1">प्रिया शर्मा</h3>
+                    <p class="text-gray-600 text-sm">युवा विंग प्रमुख</p>
                     <div class="flex justify-center space-x-4 mt-4">
                         <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
                                 width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -678,7 +680,7 @@
             <div class="text-center mt-12">
                 <a href="#"
                     class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-transform duration-300">
-                    <span>View All Members</span>
+                    <span>सभी सदस्य देखें</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-arrow-right ml-2">
@@ -693,7 +695,7 @@
 
         <!-- Vision and Mission Section -->
         <section id="vision" class="container mx-auto py-20 px-6 md:px-12 bg-blue-50 rounded-3xl shadow-inner-lg">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Vision & Mission</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">हमारी दृष्टि और मिशन</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div
                     class="bg-white p-10 rounded-3xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300 border border-blue-100">
@@ -705,12 +707,12 @@
                             <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
                             <circle cx="12" cy="12" r="3" />
                         </svg>
-                        Vision
+                        दृष्टि
                     </h3>
                     <p class="text-xl leading-relaxed text-gray-700">
-                        To foster a vibrant, equitable, and progressive community where every individual can thrive,
-                        pursue their dreams, and contribute meaningfully to society. We envision a future built on
-                        strong values, sustainable practices, and boundless opportunities for all.
+                        एक जीवंत, न्यायसंगत और प्रगतिशील समुदाय को बढ़ावा देना जहाँ प्रत्येक व्यक्ति आगे बढ़ सके, अपने
+                        सपनों को पूरा कर सके और समाज में सार्थक योगदान दे सके। हम मजबूत मूल्यों, सतत प्रथाओं और सभी के
+                        लिए असीमित अवसरों पर निर्मित भविष्य की कल्पना करते हैं।
                     </p>
                 </div>
                 <div
@@ -727,16 +729,15 @@
                             <line x1="3" x2="3.01" y1="12" y2="12" />
                             <line x1="3" x2="3.01" y1="18" y2="18" />
                         </svg>
-                        Mission
+                        मिशन
                     </h3>
                     <ul class="list-disc list-inside text-xl leading-relaxed space-y-3 text-gray-700">
-                        <li>To advocate for policies that promote social justice, economic growth, and environmental
-                            sustainability.</li>
-                        <li>To ensure transparency and accountability in governance, building public trust.</li>
-                        <li>To empower citizens through accessible education, quality health, and advanced skill
-                            development programs.</li>
-                        <li>To build stronger communities through active participation, open dialogue, and collaborative
-                            initiatives.</li>
+                        <li>सामाजिक न्याय, आर्थिक विकास और पर्यावरणीय स्थिरता को बढ़ावा देने वाली नीतियों की वकालत करना।
+                        </li>
+                        <li>शासन में पारदर्शिता और जवाबदेही सुनिश्चित करना, जनविश्वास का निर्माण करना।</li>
+                        <li>सुलभ शिक्षा, गुणवत्तापूर्ण स्वास्थ्य और उन्नत कौशल विकास कार्यक्रमों के माध्यम से नागरिकों
+                            को सशक्त बनाना।</li>
+                        <li>सक्रिय भागीदारी, खुले संवाद और सहयोगात्मक पहलों के माध्यम से मजबूत समुदाय बनाना।</li>
                     </ul>
                 </div>
             </div>
@@ -746,63 +747,64 @@
 
         <!-- Achievements Section -->
         <section id="achievements" class="container mx-auto py-20 px-6 md:px-12">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Achievements</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">हमारी उपलब्धियां</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Achievement 1 -->
                 <div
                     class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Improved Local Infrastructure</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">स्थानीय बुनियादी ढांचे में सुधार</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        Successfully spearheaded projects leading to the renovation of 50+ km of roads and significant
-                        upgrades to public parks, enhancing accessibility and quality of life for thousands.
+                        सफलतापूर्वक 50+ किमी सड़कों के नवीनीकरण और सार्वजनिक पार्कों के महत्वपूर्ण उन्नयन के लिए
+                        परियोजनाओं का नेतृत्व किया, जिससे हजारों लोगों के लिए पहुंच और जीवन की गुणवत्ता में वृद्धि हुई।
                     </p>
                 </div>
                 <!-- Achievement 2 -->
                 <div
                     class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Education Empowerment</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">शिक्षा सशक्तिकरण</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        Launched comprehensive scholarship programs benefiting over 500 deserving students and initiated
-                        digital literacy centers in remote areas, bridging the educational gap effectively.
+                        500 से अधिक योग्य छात्रों को लाभान्वित करने वाले व्यापक छात्रवृत्ति कार्यक्रम शुरू किए और
+                        दूरदराज के क्षेत्रों में डिजिटल साक्षरता केंद्र स्थापित किए, जिससे शैक्षिक अंतर को प्रभावी ढंग
+                        से पाटा जा सका।
                     </p>
                 </div>
                 <!-- Achievement 3 -->
                 <div
                     class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Healthcare Initiatives</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">स्वास्थ्य सेवा पहल</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        Facilitated the establishment of new state-of-the-art community health clinics and organized
-                        widespread health camps, providing free medical check-ups and crucial care to thousands of
-                        citizens.
+                        नए अत्याधुनिक सामुदायिक स्वास्थ्य क्लीनिकों की स्थापना में सुविधा प्रदान की और व्यापक स्वास्थ्य
+                        शिविरों का आयोजन किया, जिससे हजारों नागरिकों को मुफ्त चिकित्सा जांच और महत्वपूर्ण देखभाल प्रदान
+                        की गई।
                     </p>
                 </div>
                 <!-- Achievement 4 -->
                 <div
                     class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Environmental Protection</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">पर्यावरण संरक्षण</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        Implemented successful large-scale tree-plantation drives and tirelessly advocated for advanced
-                        waste management systems, significantly contributing to a greener and healthier environment for
-                        future generations.
+                        बड़े पैमाने पर वृक्षारोपण अभियान सफलतापूर्वक लागू किए और उन्नत अपशिष्ट प्रबंधन प्रणालियों की अथक
+                        वकालत की, जिससे आने वाली पीढ़ियों के लिए एक हरित और स्वस्थ वातावरण में महत्वपूर्ण योगदान मिला।
                     </p>
                 </div>
                 <!-- Achievement 5 -->
                 <div
                     class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Youth & Employment</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">युवा एवं रोजगार</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        Initiated dynamic vocational training programs that empowered over 300 young individuals,
-                        helping them secure meaningful employment and build promising careers in various sectors.
+                        गतिशील व्यावसायिक प्रशिक्षण कार्यक्रम शुरू किए, जिन्होंने 300 से अधिक युवा व्यक्तियों को सशक्त
+                        बनाया, जिससे उन्हें विभिन्न क्षेत्रों में सार्थक रोजगार प्राप्त करने और आशाजनक करियर बनाने में
+                        मदद मिली।
                     </p>
                 </div>
                 <!-- Achievement 6 -->
                 <div
                     class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Community Engagement</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">सामुदायिक जुड़ाव</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        Organized numerous successful town halls and public consultations, ensuring that citizen voices
-                        are actively heard, respected, and incorporated into policy-making for a truly democratic
-                        process.
+                        कई सफल टाउन हॉल और सार्वजनिक परामर्शों का आयोजन किया, यह सुनिश्चित करते हुए कि नागरिकों की आवाज
+                        सक्रिय रूप से सुनी जाती है, सम्मानित होती है, और वास्तव में लोकतांत्रिक प्रक्रिया के लिए
+                        नीति-निर्माण में शामिल की जाती है।
                     </p>
                 </div>
             </div>
@@ -812,24 +814,24 @@
 
         <!-- Gallery Section -->
         <section id="gallery" class="container mx-auto py-20 px-6 md:px-12 bg-blue-50 rounded-3xl shadow-inner-lg">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Gallery</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">हमारी गैलरी</h2>
             <div class="slider-container">
                 <div class="slides">
                     <div class="slide">
                         <img src="https://placehold.co/900x450/4CAF50/FFFFFF?text=Rally+Highlights"
-                            alt="Rally Highlights">
+                            alt="रैली की झलकियां">
                     </div>
                     <div class="slide">
                         <img src="https://placehold.co/900x450/FFC107/FFFFFF?text=Community+Meeting"
-                            alt="Community Meeting">
+                            alt="सामुदायिक बैठक">
                     </div>
                     <div class="slide">
                         <img src="https://placehold.co/900x450/2196F3/FFFFFF?text=Speech+at+Event"
-                            alt="Speech at Event">
+                            alt="कार्यक्रम में भाषण">
                     </div>
                     <div class="slide">
                         <img src="https://placehold.co/900x450/9C27B0/FFFFFF?text=Project+Inauguration"
-                            alt="Project Inauguration">
+                            alt="परियोजना का उद्घाटन">
                     </div>
                 </div>
 
@@ -860,24 +862,25 @@
 
         <!-- Events Section -->
         <section id="events" class="container mx-auto py-20 px-6 md:px-12">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Events</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">हमारे कार्यक्रम</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Event Card 1 -->
                 <div
                     class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/400x200/93C5FD/FFFFFF?text=Event+1" alt="Event Image 1"
+                    <img src="https://placehold.co/400x200/93C5FD/FFFFFF?text=Event+1" alt="कार्यक्रम चित्र 1"
                         class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 text-blue-800">Press Conference on Bihar Elections 2025</h3>
-                        <p class="text-gray-600 text-sm mb-4">Date: May 14, 2025 | Location: Hotel Red Velvet, Patna |
-                            Time: 11:30 AM</p>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">बिहार विधानसभा चुनाव 2025 पर प्रेस कॉन्फ्रेंस
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">दिनांक: 14 मई, 2025 | स्थान: होटल रेड वेलवेट, पटना | समय:
+                            सुबह 11:30 बजे</p>
                         <p class="text-700 leading-relaxed mb-4">
-                            Er. I.P. Gupta, National President, Indian Inquilab Party, will hold a press conference to
-                            announce candidates for the upcoming Bihar Assembly Elections 2025.
+                            इंडियन इंक़लाब पार्टी के राष्ट्रीय अध्यक्ष ई. आई.पी. गुप्ता आगामी बिहार विधानसभा चुनाव 2025
+                            के लिए उम्मीदवारों की घोषणा करने के लिए एक प्रेस कॉन्फ्रेंस करेंगे।
                         </p>
                         <a href="#"
-                            class="text-blue-600 hover:underline inline-block font-medium text-lg flex items-center">Read
-                            More <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            class="text-blue-600 hover:underline inline-block font-medium text-lg flex items-center">और
+                            पढ़ें <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-arrow-right ml-1">
                                 <path d="M5 12h14" />
@@ -888,19 +891,19 @@
                 <!-- Event Card 2 -->
                 <div
                     class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/400x200/60A5FA/FFFFFF?text=Event+2" alt="Event Image 2"
+                    <img src="https://placehold.co/400x200/60A5FA/FFFFFF?text=Event+2" alt="कार्यक्रम चित्र 2"
                         class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 text-blue-800">Community Health Camp in District ABC</h3>
-                        <p class="text-gray-600 text-sm mb-4">Date: April 28, 2025 | Location: Community Hall, ABC
-                            District | Time: 9:00 AM - 4:00 PM</p>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">जिला एबीसी में सामुदायिक स्वास्थ्य शिविर</h3>
+                        <p class="text-gray-600 text-sm mb-4">दिनांक: 28 अप्रैल, 2025 | स्थान: सामुदायिक हॉल, एबीसी जिला
+                            | समय: सुबह 9:00 बजे - शाम 4:00 बजे</p>
                         <p class="text-gray-700 leading-relaxed mb-4">
-                            Our party is organizing a free health camp offering medical check-ups and consultations for
-                            all residents. Your health is our priority.
+                            हमारी पार्टी सभी निवासियों के लिए मुफ्त स्वास्थ्य जांच और परामर्श प्रदान करने के लिए एक
+                            मुफ्त स्वास्थ्य शिविर का आयोजन कर रही है। आपका स्वास्थ्य हमारी प्राथमिकता है।
                         </p>
                         <a href="#"
-                            class="text-blue-600 hover:underline inline-block font-medium text-lg flex items-center">Read
-                            More <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            class="text-blue-600 hover:underline inline-block font-medium text-lg flex items-center">और
+                            पढ़ें <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-arrow-right ml-1">
                                 <path d="M5 12h14" />
@@ -911,19 +914,19 @@
                 <!-- Event Card 3 -->
                 <div
                     class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/400x200/BFDBFE/FFFFFF?text=Event+3" alt="Event Image 3"
+                    <img src="https://placehold.co/400x200/BFDBFE/FFFFFF?text=Event+3" alt="कार्यक्रम चित्र 3"
                         class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 text-blue-800">Youth Skill Development Workshop</h3>
-                        <p class="text-gray-600 text-sm mb-4">Date: March 10, 2025 | Location: Youth Center, City Hall |
-                            Time: 10:00 AM - 5:00 PM</p>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">युवा कौशल विकास कार्यशाला</h3>
+                        <p class="text-gray-600 text-sm mb-4">दिनांक: 10 मार्च, 2025 | स्थान: युवा केंद्र, सिटी हॉल |
+                            समय: सुबह 10:00 बजे - शाम 5:00 बजे</p>
                         <p class="text-gray-700 leading-relaxed mb-4">
-                            An intensive workshop designed to equip young individuals with essential skills for
-                            employment and entrepreneurship.
+                            रोजगार और उद्यमिता के लिए आवश्यक कौशल के साथ युवा व्यक्तियों को लैस करने के लिए डिज़ाइन की
+                            गई एक गहन कार्यशाला।
                         </p>
                         <a href="#"
-                            class="text-blue-600 hover:underline inline-block font-medium text-lg flex items-center">Read
-                            More <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            class="text-blue-600 hover:underline inline-block font-medium text-lg flex items-center">और
+                            पढ़ें <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-arrow-right ml-1">
                                 <path d="M5 12h14" />
@@ -935,7 +938,7 @@
             <div class="text-center mt-12">
                 <a href="#"
                     class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-transform duration-300">
-                    <span>View All Events</span>
+                    <span>सभी कार्यक्रम देखें</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-arrow-right ml-2">
@@ -950,23 +953,25 @@
 
         <!-- News and Updates Section -->
         <section id="news" class="container mx-auto py-20 px-6 md:px-12 bg-blue-50 rounded-3xl shadow-inner-lg">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Latest News & Updates</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">नवीनतम समाचार और अपडेट</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- News Article 1 -->
                 <div
                     class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/400x200/93C5FD/FFFFFF?text=Community+Event" alt="News Image 1"
+                    <img src="https://placehold.co/400x200/93C5FD/FFFFFF?text=Community+Event" alt="समाचार चित्र 1"
                         class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 text-blue-800">MLA Inaugurates New Community Hall</h3>
-                        <p class="text-gray-600 text-sm mb-4">June 14, 2025</p>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">विधायक ने नए सामुदायिक हॉल का उद्घाटन किया
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">14 जून, 2025</p>
                         <p class="text-gray-700 leading-relaxed">
-                            [MLA's Name] today inaugurated the state-of-the-art community hall, a pivotal project aimed
-                            at fostering vibrant social gatherings and rich cultural events for all residents.
+                            [MLA's Name] ने आज अत्याधुनिक सामुदायिक हॉल का उद्घाटन किया, जो सभी निवासियों के लिए जीवंत
+                            सामाजिक समारोहों और समृद्ध सांस्कृतिक कार्यक्रमों को बढ़ावा देने के उद्देश्य से एक
+                            महत्वपूर्ण परियोजना है।
                         </p>
                         <a href="#"
-                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">Read
-                            More <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">और
+                            पढ़ें <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-arrow-right ml-1">
                                 <path d="M5 12h14" />
@@ -977,20 +982,18 @@
                 <!-- News Article 2 -->
                 <div
                     class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/400x200/60A5FA/FFFFFF?text=Policy+Meeting" alt="News Image 2"
+                    <img src="https://placehold.co/400x200/60A5FA/FFFFFF?text=Policy+Meeting" alt="समाचार चित्र 2"
                         class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 text-blue-800">New Policy on Sustainable Agriculture Passed
-                        </h3>
-                        <p class="text-gray-600 text-sm mb-4">June 10, 2025</p>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">सतत कृषि पर नई नीति पारित</h3>
+                        <p class="text-gray-600 text-sm mb-4">10 जून, 2025</p>
                         <p class="text-gray-700 leading-relaxed">
-                            A landmark policy focused on promoting sustainable agricultural practices and offering
-                            substantial support to local farmers has been successfully passed under MLA's innovative
-                            initiative.
+                            सतत कृषि पद्धतियों को बढ़ावा देने और स्थानीय किसानों को पर्याप्त सहायता प्रदान करने पर
+                            केंद्रित एक ऐतिहासिक नीति विधायक की अभिनव पहल के तहत सफलतापूर्वक पारित की गई है।
                         </p>
                         <a href="#"
-                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">Read
-                            More <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">और
+                            पढ़ें <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-arrow-right ml-1">
                                 <path d="M5 12h14" />
@@ -1001,19 +1004,19 @@
                 <!-- News Article 3 -->
                 <div
                     class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/400x200/BFDBFE/FFFFFF?text=Youth+Program" alt="News Image 3"
+                    <img src="https://placehold.co/400x200/BFDBFE/FFFFFF?text=Youth+Program" alt="समाचार चित्र 3"
                         class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 text-blue-800">Youth Empowerment Workshop Attended by
-                            Thousands</h3>
-                        <p class="text-gray-600 text-sm mb-4">June 5, 2025</p>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">हजारों की संख्या में युवा सशक्तिकरण कार्यशाला
+                            में शामिल हुए</h3>
+                        <p class="text-gray-600 text-sm mb-4">5 जून, 2025</p>
                         <p class="text-gray-700 leading-relaxed">
-                            The recent youth empowerment workshop, championed by [MLA's Name], saw overwhelming
-                            participation, providing crucial skill development and inspiring future leaders.
+                            [MLA's Name] द्वारा समर्थित हाल की युवा सशक्तिकरण कार्यशाला में भारी भागीदारी देखी गई, जिसने
+                            महत्वपूर्ण कौशल विकास प्रदान किया और भविष्य के नेताओं को प्रेरित किया।
                         </p>
                         <a href="#"
-                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">Read
-                            More <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">और
+                            पढ़ें <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-arrow-right ml-1">
                                 <path d="M5 12h14" />
@@ -1025,7 +1028,7 @@
             <div class="text-center mt-12">
                 <a href="#"
                     class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-transform duration-300">
-                    <span>View All News</span>
+                    <span>सभी समाचार देखें</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-arrow-right ml-2">
@@ -1036,28 +1039,28 @@
             </div>
         </section>
 
+
         <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
 
         <!-- Media Coverage Section -->
         <section id="media" class="container mx-auto py-20 px-6 md:px-12">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Media Coverage</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">मीडिया कवरेज</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Media Item 1 -->
                 <div
                     class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/400x200/FFD700/FFFFFF?text=Newspaper+Article+1"
-                        alt="Newspaper Article"
+                    <img src="https://placehold.co/400x200/FFD700/FFFFFF?text=Newspaper+Article+1" alt="अखबार लेख"
                         class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 text-blue-800">Reservation for All Communities</h3>
-                        <p class="text-gray-600 text-sm mb-4">Source: Punjab Kesari | Date: April 17, 2025</p>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">सभी समुदायों के लिए आरक्षण</h3>
+                        <p class="text-gray-600 text-sm mb-4">स्रोत: पंजाब केसरी | दिनांक: 17 अप्रैल, 2025</p>
                         <p class="text-gray-700 leading-relaxed">
-                            Our recent protest for reservation for the poor across all communities gained significant
-                            media attention.
+                            सभी समुदायों के गरीबों के लिए आरक्षण के लिए हमारे हाल के विरोध को महत्वपूर्ण मीडिया कवरेज
+                            मिली।
                         </p>
                         <a href="#"
-                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">View
-                            Coverage <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">कवरेज
+                            देखें <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-external-link ml-1">
                                 <path d="M15 3h6v6" />
@@ -1069,18 +1072,18 @@
                 <!-- Media Item 2 -->
                 <div
                     class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/400x200/A0DA8A/FFFFFF?text=Rally+Coverage" alt="Rally Coverage"
+                    <img src="https://placehold.co/400x200/A0DA8A/FFFFFF?text=Rally+Coverage" alt="रैली कवरेज"
                         class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 text-blue-800">Helicopter Campaign for Movement</h3>
-                        <p class="text-gray-600 text-sm mb-4">Source: Local News | Date: April 15, 2025</p>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">आंदोलन के लिए हेलीकॉप्टर अभियान</h3>
+                        <p class="text-gray-600 text-sm mb-4">स्रोत: स्थानीय समाचार | दिनांक: 15 अप्रैल, 2025</p>
                         <p class="text-gray-700 leading-relaxed">
-                            The unique helicopter campaign for our ongoing movement has captured widespread public
-                            interest and media coverage.
+                            हमारे चल रहे आंदोलन के लिए अद्वितीय हेलीकॉप्टर अभियान ने व्यापक जनहित और मीडिया कवरेज
+                            प्राप्त की है।
                         </p>
                         <a href="#"
-                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">View
-                            Coverage <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">कवरेज
+                            देखें <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-external-link ml-1">
                                 <path d="M15 3h6v6" />
@@ -1093,18 +1096,18 @@
                 <div
                     class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
                     <img src="https://placehold.co/400x200/ADD8E6/FFFFFF?text=Bihar+Jharkhand+News"
-                        alt="Bihar Jharkhand News"
+                        alt="बिहार झारखंड समाचार"
                         class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 text-blue-800">Bihar-Jharkhand First Preference</h3>
-                        <p class="text-gray-600 text-sm mb-4">Source: Bihar-Jharkhand News | Date: April 12, 2025</p>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">बिहार-झारखंड को पहली प्राथमिकता</h3>
+                        <p class="text-gray-600 text-sm mb-4">स्रोत: बिहार-झारखंड समाचार | दिनांक: 12 अप्रैल, 2025</p>
                         <p class="text-gray-700 leading-relaxed">
-                            Our party's commitment to prioritizing the needs of Bihar and Jharkhand has been highlighted
-                            in recent regional news.
+                            बिहार और झारखंड की जरूरतों को प्राथमिकता देने के लिए हमारी पार्टी की प्रतिबद्धता हाल के
+                            क्षेत्रीय समाचारों में उजागर हुई है।
                         </p>
                         <a href="#"
-                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">View
-                            Coverage <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">कवरेज
+                            देखें <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-external-link ml-1">
                                 <path d="M15 3h6v6" />
@@ -1117,7 +1120,7 @@
             <div class="text-center mt-12">
                 <a href="#"
                     class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-transform duration-300">
-                    <span>View All Media</span>
+                    <span>सभी मीडिया देखें</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-arrow-right ml-2">
@@ -1133,11 +1136,12 @@
 
         <!-- Contact Section -->
         <section id="contact" class="container mx-auto py-20 px-6 md:px-12">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Contact Us</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">हमसे संपर्क करें</h2>
             <div class="bg-white p-10 rounded-3xl shadow-xl flex flex-col md:flex-row gap-10 border border-blue-100">
                 <div class="md:w-1/2">
                     <p class="text-xl mb-6 text-gray-700 leading-relaxed">
-
+                        हम आपकी प्रतिक्रिया को महत्व देते हैं और आपको अपने प्रश्नों, सुझावों या चिंताओं के साथ हमसे
+                        संपर्क करने के लिए प्रोत्साहित करते हैं। आपकी आवाज मायने रखती है, और हम सुनने के लिए यहां हैं!
                     </p>
                     <ul class="space-y-5 text-gray-700 text-lg">
                         <li class="flex items-center">
@@ -1148,8 +1152,8 @@
                                 <path d="M12 12.01V12" />
                                 <path d="M18.364 17.364A9 9 0 1 0 5.636 6.636L12 1l6.364 5.636z" />
                             </svg>
-                            <span class="font-semibold text-gray-900">Constituency Office:</span> H-376, Rd No. 11,
-                            Shree Krishna Nagar, Nr Kidwaipuri PO, Patna, Bihar Pincode-800001
+                            <span class="font-semibold text-gray-900">निर्वाचन क्षेत्र कार्यालय:</span> H-376, रोड नं.
+                            11, श्री कृष्णा नगर, किदवईपुरी पीओ के पास, पटना, बिहार पिनकोड-800001
                         </li>
                         <li class="flex items-center">
                             <!-- Mail icon -->
@@ -1159,7 +1163,7 @@
                                 <rect width="20" height="16" x="2" y="4" rx="2" />
                                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                             </svg>
-                            <span class="font-semibold text-gray-900">Email:</span> info@iip.org.in
+                            <span class="font-semibold text-gray-900">ईमेल:</span> info@iip.org.in
                         </li>
                         <li class="flex items-center">
                             <!-- Phone icon -->
@@ -1169,33 +1173,33 @@
                                 <path
                                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                             </svg>
-                            <span class="font-semibold text-gray-900">Phone:</span> +91 8826428658
+                            <span class="font-semibold text-gray-900">फ़ोन:</span> +91 8826428658
                         </li>
                     </ul>
                 </div>
                 <div class="md:w-1/2">
                     <form class="space-y-6">
                         <div>
-                            <label for="name" class="block text-gray-700 font-semibold mb-2">Your Name</label>
+                            <label for="name" class="block text-gray-700 font-semibold mb-2">आपका नाम</label>
                             <input type="text" id="name" name="name"
                                 class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
-                                placeholder="John Doe" required>
+                                placeholder="जॉन डो" required>
                         </div>
                         <div>
-                            <label for="email" class="block text-gray-700 font-semibold mb-2">Your Email</label>
+                            <label for="email" class="block text-gray-700 font-semibold mb-2">आपका ईमेल</label>
                             <input type="email" id="email" name="email"
                                 class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
-                                placeholder="john.doe@example.com" required>
+                                placeholder="your.email@example.com" required>
                         </div>
                         <div>
-                            <label for="message" class="block text-gray-700 font-semibold mb-2">Your Message</label>
+                            <label for="message" class="block text-gray-700 font-semibold mb-2">आपका संदेश</label>
                             <textarea id="message" name="message" rows="6"
                                 class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
-                                placeholder="Write your message here..." required></textarea>
+                                placeholder="अपना संदेश यहां लिखें..." required></textarea>
                         </div>
                         <button type="submit"
                             class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 transform hover:scale-[1.01] active:scale-99">
-                            Send Message
+                            संदेश भेजें
                         </button>
                     </form>
                 </div>
@@ -1208,9 +1212,9 @@
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
             <!-- Footer Section 1: Logo & Contact Info -->
             <div>
-                <img src="https://placehold.co/80x80/FFFFFF/007bff?text=IIP+Logo" alt="Indian Inquilab Party Logo"
+                <img src="https://placehold.co/80x80/FFFFFF/007bff?text=IIP+Logo" alt="इंडियन इंक़लाब पार्टी लोगो"
                     class="rounded-full shadow-md mb-4" />
-                <h3 class="text-xl font-bold mb-4">Indian Inquilab Party (I.I.P)</h3>
+                <h3 class="text-xl font-bold mb-4">इंडियन इंक़लाब पार्टी (I.I.P)</h3>
                 <ul class="space-y-2 text-sm">
                     <li class="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -1237,29 +1241,31 @@
                             <path d="M12 12.01V12" />
                             <path d="M18.364 17.364A9 9 0 1 0 5.636 6.636L12 1l6.364 5.636z" />
                         </svg>
-                        H-376, Rd No. 11, Shree Krishna Nagar, Nr Kidwaipuri PO, Patna, Bihar Pincode-800001
+                        H-376, रोड नं. 11, श्री कृष्णा नगर, किदवईपुरी पीओ के पास, पटना, बिहार पिनकोड-800001
                     </li>
                 </ul>
             </div>
 
             <!-- Footer Section 2: Quick Links & Main Links -->
             <div>
-                <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                <h3 class="text-xl font-bold mb-4">त्वरित लिंक</h3>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#home" class="hover:text-blue-400 transition-colors duration-300">Home</a></li>
-                    <li><a href="#about" class="hover:text-blue-400 transition-colors duration-300">About</a></li>
-                    <li><a href="#get-involved" class="hover:text-blue-400 transition-colors duration-300">Get
-                            Involved</a></li>
-                    <li><a href="#media" class="hover:text-blue-400 transition-colors duration-300">Media</a></li>
-                    <li><a href="#election" class="hover:text-blue-400 transition-colors duration-300">Election</a></li>
-                    <li><a href="#gallery" class="hover:text-blue-400 transition-colors duration-300">Gallery</a></li>
-                    <li><a href="#contact" class="hover:text-blue-400 transition-colors duration-300">Contact</a></li>
+                    <li><a href="#home" class="hover:text-blue-400 transition-colors duration-300">होम</a></li>
+                    <li><a href="#about" class="hover:text-blue-400 transition-colors duration-300">हमारे बारे में</a>
+                    </li>
+                    <li><a href="#get-involved" class="hover:text-blue-400 transition-colors duration-300">जुड़ें</a>
+                    </li>
+                    <li><a href="#media" class="hover:text-blue-400 transition-colors duration-300">मीडिया</a></li>
+                    <li><a href="#election" class="hover:text-blue-400 transition-colors duration-300">चुनाव</a></li>
+                    <li><a href="#gallery" class="hover:text-blue-400 transition-colors duration-300">गैलरी</a></li>
+                    <li><a href="#contact" class="hover:text-blue-400 transition-colors duration-300">संपर्क करें</a>
+                    </li>
                 </ul>
             </div>
 
             <!-- Footer Section 3: Follow Us & App Download -->
             <div class="text-center md:text-left">
-                <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                <h3 class="text-xl font-bold mb-4">हमें फॉलो करें</h3>
                 <div class="flex justify-center md:justify-start space-x-6 mb-6">
                     <a href="#" class="hover:text-blue-400 transition-colors duration-300" aria-label="Facebook">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -1288,13 +1294,13 @@
                 </div>
                 <a href="#" class="inline-block mt-4">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                        alt="Get it on Google Play" class="h-14">
+                        alt="Google Play पर प्राप्त करें" class="h-14">
                 </a>
             </div>
         </div>
         <div class="text-center mt-12 border-t border-gray-700 pt-8">
-            <p class="text-sm">&copy; <span id="current-year-footer"></span> Indian Inquilab Party. All rights reserved.
-                ..</p>
+            <p class="text-sm">&copy; <span id="current-year-footer"></span> इंडियन इंक़लाब पार्टी। सर्वाधिकार सुरक्षित।
+                | द्वारा संचालित Traffic Tail</p>
         </div>
     </footer>
 
@@ -1311,43 +1317,43 @@
                     <path d="m6 6 12 12" />
                 </svg>
             </button>
-            <h2 class="text-4xl font-bold text-center mb-8 text-blue-700">Become a Member</h2>
+            <h2 class="text-4xl font-bold text-center mb-8 text-blue-700">सदस्य बनें</h2>
 
             <form id="membershipForm" class="space-y-6">
                 <div>
-                    <label for="memberName" class="block text-gray-700 font-semibold mb-2">Your Name</label>
+                    <label for="memberName" class="block text-gray-700 font-semibold mb-2">आपका नाम</label>
                     <input type="text" id="memberName" name="memberName"
                         class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
-                        placeholder="Enter your full name" required>
+                        placeholder="अपना पूरा नाम दर्ज करें" required>
                 </div>
                 <div>
-                    <label for="memberEmail" class="block text-gray-700 font-semibold mb-2">Your Email</label>
+                    <label for="memberEmail" class="block text-gray-700 font-semibold mb-2">आपका ईमेल</label>
                     <input type="email" id="memberEmail" name="memberEmail"
                         class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
                         placeholder="your.email@example.com" required>
                 </div>
                 <div>
-                    <label for="memberPhone" class="block text-gray-700 font-semibold mb-2">Phone Number</label>
+                    <label for="memberPhone" class="block text-gray-700 font-semibold mb-2">फ़ोन नंबर</label>
                     <input type="tel" id="memberPhone" name="memberPhone"
                         class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
-                        placeholder="e.g., +91 9876543210" required>
+                        placeholder="उदा. +91 9876543210" required>
                 </div>
                 <div>
-                    <label for="memberAddress" class="block text-gray-700 font-semibold mb-2">Your Address</label>
+                    <label for="memberAddress" class="block text-gray-700 font-semibold mb-2">आपका पता</label>
                     <textarea id="memberAddress" name="memberAddress" rows="3"
                         class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
-                        placeholder="Your full address"></textarea>
+                        placeholder="आपका पूरा पता"></textarea>
                 </div>
                 <div>
-                    <label for="memberVoterID" class="block text-gray-700 font-semibold mb-2">Voter ID
-                        (Optional)</label>
+                    <label for="memberVoterID" class="block text-gray-700 font-semibold mb-2">मतदाता पहचान पत्र
+                        (वैकल्पिक)</label>
                     <input type="text" id="memberVoterID" name="memberVoterID"
                         class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
-                        placeholder="Optional">
+                        placeholder="वैकल्पिक">
                 </div>
                 <button type="submit"
                     class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 transform hover:scale-[1.01] active:scale-99">
-                    Submit Application
+                    आवेदन जमा करें
                 </button>
             </form>
             <p id="membership-status" class="mt-4 text-center text-sm hidden"></p>
@@ -1445,12 +1451,12 @@
             membershipForm.addEventListener('submit', function (event) {
                 event.preventDefault(); // Prevent default form submission
                 membershipStatus.classList.remove('hidden', 'text-green-600', 'text-red-600'); // Clean previous status classes
-                membershipStatus.textContent = 'Submitting your application...';
+                membershipStatus.textContent = 'आपका आवेदन जमा किया जा रहा है...'; // Hindi: Submitting your application...
                 membershipStatus.classList.add('text-gray-600'); // Add a neutral color for processing
 
                 // Simulate form submission with a delay
                 setTimeout(() => {
-                    membershipStatus.textContent = 'Application submitted successfully! We will contact you soon.';
+                    membershipStatus.textContent = 'आवेदन सफलतापूर्वक जमा हो गया! हम जल्द ही आपसे संपर्क करेंगे।'; // Hindi: Application submitted successfully! We will contact you soon.
                     membershipStatus.classList.remove('text-gray-600');
                     membershipStatus.classList.add('text-green-600'); // Green for success
                     membershipForm.reset(); // Clear form fields
