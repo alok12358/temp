@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Inquilab Party (I.I.P) – MLA's Official Website</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            /* Softer, slightly bluish-gray background */
+            color: #333;
+            /* Default text color */
+        }
+
+        /* Basic styling for smooth scroll for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Ensure images take available width within their containers */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            /* Removes extra space below image */
+        }
+
+        /* Custom modal overlay styles */
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            display: none;
+            /* Hidden by default */
+            transition: opacity 0.3s ease-in-out;
+            cursor: pointer;
+            /* Indicate it's clickable to close */
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            border-radius: 1.25rem;
+            /* More rounded */
+            max-width: 90%;
+            /* Responsive width */
+            width: 450px;
+            /* Slightly wider */
+            z-index: 1000;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+            /* Stronger shadow */
+            max-height: 90vh;
+            /* Set maximum height to 90% of viewport height */
+            overflow-y: auto;
+            /* Enable vertical scrolling if content overflows */
+        }
+
+        /* Animations for hero section text */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-down {
+            animation: fadeInDown 1s ease-out forwards;
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+            /* Slight delay for follow-up text */
+            opacity: 0;
+            /* Start hidden for animation */
+        }
+
+        /* Gallery Slider Specific Styles */
+        .slider-container {
+            position: relative;
+            max-width: 900px;
+            /* Max width for the slider */
+            margin: auto;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            /* Rounded corners for slider */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            /* Soft shadow */
+            background-color: #ffffff;
+            /* Background for controls */
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            /* Smooth slide transition */
+        }
+
+        .slide {
+            min-width: 100%;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 450px;
+            /* Fixed height for consistency */
+            object-fit: cover;
+            /* Cover container while maintaining aspect ratio */
+            border-radius: 1.5rem;
+            /* Match slider container border-radius */
+        }
+
+        .slider-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            border-radius: 50%;
+            /* Circular buttons */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .slider-nav-btn:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev-btn {
+            left: 1rem;
+        }
+
+        .next-btn {
+            right: 1rem;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .dot.active {
+            background-color: #3b82f6;
+            /* Blue color for active dot */
+            border-color: #1d4ed8;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body class="text-gray-800">
+
+    <!-- Top Bar -->
+    <div class="bg-gray-900 text-white text-sm py-2 px-6 md:px-10">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-1 md:space-y-0">
+            <div class="flex items-center space-x-4">
+                <a href="tel:+918826428658" class="flex items-center hover:text-blue-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-phone mr-1">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    <span>+91 8826428658</span>
+                </a>
+                <a href="mailto:info@iip.org.in" class="flex items-center hover:text-blue-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-mail mr-1">
+                        <rect width="20" height="16" x="2" y="4" rx="2" />
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                    <span>info@iip.org.in</span>
+                </a>
+                <a href="#" class="flex items-center hover:text-blue-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-log-in mr-1">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                        <polyline points="10 17 15 12 10 7" />
+                        <line x1="15" x2="3" y1="12" y2="12" />
+                    </svg>
+                    <span>Login</span>
+                </a>
+            </div>
+            <div class="flex items-center hover:text-blue-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-map-pin mr-1">
+                    <path d="M12 12.01V12" />
+                    <path d="M18.364 17.364A9 9 0 1 0 5.636 6.636L12 1l6.364 5.636z" />
+                </svg>
+                <span>H-376, Rd No. 11, Shree Krishna Nagar, Nr Kidwaipuri PO, Patna, Bihar Pincode-800001</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header
+        class="bg-gradient-to-r from-blue-800 to-indigo-700 text-white shadow-xl py-4 px-6 md:px-10 sticky top-0 z-50">
+        <nav class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <!-- Placeholder for Logo - Replaces MLA's Name text as per screenshot -->
+                <img src="https://placehold.co/60x60/FFFFFF/007bff?text=IIP+Logo" alt="Indian Inquilab Party Logo"
+                    class="rounded-full shadow-md" />
+                <div class="flex flex-col">
+                    <a href="#" class="text-2xl font-extrabold tracking-tight">Indian Inquilab Party (I.I.P)</a>
+                    <span class="text-sm text-blue-200">हर सदस्य क्रांतिकारी, हर क्रांतिकारी नेतृत्व का हकदार !</span>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button for Navbar -->
+            <div class="md:hidden">
+                <button id="navbar-mobile-menu-button"
+                    class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+                    aria-label="Toggle navigation">
+                    <!-- Menu icon -->
+                    <svg id="navbar-menu-icon" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <!-- Close icon -->
+                    <svg id="navbar-close-icon" class="h-8 w-8 hidden" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div id="navbar-desktop-menu"
+                class="hidden md:flex mt-4 md:mt-0 space-y-2 md:space-y-0 md:space-x-8 flex-col md:flex-row items-center font-semibold text-lg">
+                <a href="#home" class="hover:text-blue-300 transition-colors duration-300">Home</a>
+                <a href="#about" class="hover:text-blue-300 transition-colors duration-300">About</a>
+                <a href="#get-involved" class="hover:text-blue-300 transition-colors duration-300">Get Involved</a>
+                <a href="#media" class="hover:text-blue-300 transition-colors duration-300">Media</a>
+                <a href="#election" class="hover:text-blue-300 transition-colors duration-300">Election</a>
+                <a href="#gallery" class="hover:text-blue-300 transition-colors duration-300">Gallery</a>
+                <a href="#contact" class="hover:text-blue-300 transition-colors duration-300">Contact</a>
+            </div>
+        </nav>
+        <!-- Mobile Navigation (hidden by default, shown by JS) -->
+        <div id="navbar-mobile-menu" class="md:hidden bg-blue-800 pt-4 pb-2 px-6 hidden">
+            <div class="flex flex-col items-center space-y-2 text-lg font-semibold">
+                <a href="#home"
+                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Home</a>
+                <a href="#about"
+                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">About</a>
+                <a href="#get-involved"
+                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Get
+                    Involved</a>
+                <a href="#media"
+                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Media</a>
+                <a href="#election"
+                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Election</a>
+                <a href="#gallery"
+                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Gallery</a>
+                <a href="#contact"
+                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home"
+            class="relative bg-cover bg-center min-h-[600px] flex items-center justify-center text-white text-center rounded-b-3xl shadow-2xl overflow-hidden p-6"
+            style="background-image: url('https://placehold.co/1500x800/2563EB/FFFFFF?text=Serving+the+Community+with+Integrity');">
+            <div class="absolute inset-0 bg-blue-900 opacity-60 rounded-b-3xl"></div>
+            <div
+                class="relative z-10 flex flex-col lg:flex-row items-center lg:items-start justify-center w-full max-w-7xl mx-auto gap-8">
+                <!-- Left Content Area (Main Image and Text) -->
+                <div class="flex-1 text-left p-6 bg-white bg-opacity-10 rounded-lg shadow-lg">
+                    <h1
+                        class="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in-down drop-shadow-lg text-yellow-300">
+                        नया इंक़लाब – नए भारत की ओर
+                    </h1>
+                    <p class="text-lg md:text-xl max-w-2xl opacity-95 animate-fade-in-up leading-relaxed mb-6">
+                        इंक़लाब अब केवल इतिहास की किताबों में नहीं, यह आज के हर जागरूक नागरिक की सोच में ज़िंदा है।
+                        इंडियन इंक़लाब पार्टी उस क्रांति की लो है, जो न्याय, समानता और स्वराज की भावना को फिर से जलाती
+                        है। आइए, जुड़िए इस जन आंदोलन से जहाँ हर आवाज़ मायने रखती है, हर कदम बदलाव की ओर बढ़ता है।
+                    </p>
+                    <img src="https://placehold.co/800x450/4CAF50/FFFFFF?text=Main+Rally+Image" alt="Main Rally"
+                        class="rounded-lg shadow-xl mb-4 w-full h-auto max-h-[450px] object-cover">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                        <img src="https://placehold.co/400x250/FFC107/FFFFFF?text=Sub+Image+1" alt="Sub Image 1"
+                            class="rounded-lg shadow-md w-full h-auto object-cover">
+                        <img src="https://placehold.co/400x250/2196F3/FFFFFF?text=Sub+Image+2" alt="Sub Image 2"
+                            class="rounded-lg shadow-md w-full h-auto object-cover">
+                    </div>
+                </div>
+
+                <!-- Right Sidebar / Action Blocks -->
+                <div class="flex-none w-full lg:w-80 space-y-6 p-6 bg-white bg-opacity-10 rounded-lg shadow-lg">
+                    <!-- Join Us Card -->
+                    <div
+                        class="bg-blue-100 p-6 rounded-lg shadow-md border-b-4 border-blue-500 hover:shadow-lg transition-all duration-300">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold text-blue-800">Join Us</h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-users text-blue-500">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">Become a part of our movement for change.</p>
+                        <button id="membershipBtnHero"
+                            class="w-full bg-blue-600 text-white font-semibold py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">
+                            View &rarr;
+                        </button>
+                    </div>
+
+                    <!-- Our Event Card -->
+                    <div
+                        class="bg-green-100 p-6 rounded-lg shadow-md border-b-4 border-green-500 hover:shadow-lg transition-all duration-300">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold text-green-800">Our Event</h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-calendar-check text-green-500">
+                                <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                                <line x1="16" x2="16" y1="2" y2="6" />
+                                <line x1="8" x2="8" y1="2" y2="6" />
+                                <line x1="3" x2="21" y1="10" y2="10" />
+                                <path d="m9 16 2 2 4-4" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">Stay updated with our upcoming rallies and meetings.</p>
+                        <a href="#events"
+                            class="block w-full bg-green-600 text-white font-semibold py-2 text-center rounded-full hover:bg-green-700 transition-colors duration-300">
+                            View &rarr;
+                        </a>
+                    </div>
+
+                    <!-- Donate Us Card -->
+                    <div
+                        class="bg-purple-100 p-6 rounded-lg shadow-md border-b-4 border-purple-500 hover:shadow-lg transition-all duration-300">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold text-purple-800">Donate Us</h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-piggy-bank text-purple-500">
+                                <path
+                                    d="M19 5c-1.5 0-2.8 1.1-3.2 2.72a1 1 0 0 1-1 1.28H2v3h14a1 1 0 0 1 1 1.28c-.4 1.62-1.7 2.72-3.2 2.72H2v3h14c1.5 0 2.8-1.1 3.2-2.72a1 1 0 0 1 1-1.28H22v-3h-2a1 1 0 0 1-1-1.28C19.4 6.1 20.7 5 22 5h-3z" />
+                                <path d="M22 9V7" />
+                                <path d="M2 13v-1c0-.5.5-1 1-1h19" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">Support our mission with your valuable contribution.</p>
+                        <a href="payment.html"
+                            class="block w-full bg-purple-600 text-white font-semibold py-2 text-center rounded-full hover:bg-purple-700 transition-colors duration-300">
+                            DONATE &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About MLA Section -->
+        <section id="about" class="container mx-auto py-20 px-6 md:px-12">
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">About [MLA's Name]</h2>
+            <div
+                class="flex flex-col md:flex-row items-center gap-10 bg-white p-10 rounded-3xl shadow-xl border border-blue-100">
+                <div class="md:w-1/3 flex-shrink-0">
+                    <img src="https://placehold.co/350x350/3B82F6/FFFFFF?text=MLA+Photo" alt="MLA's Photo"
+                        class="rounded-full w-60 h-60 mx-auto object-cover border-6 border-blue-500 shadow-lg transform transition-transform duration-500 hover:scale-105">
+                </div>
+                <div class="md:w-2/3 text-xl leading-relaxed text-gray-700">
+                    <p class="mb-5">
+                        [MLA's Name] is a dedicated public servant with a deep-rooted commitment to the well-being and
+                        prosperity of our community. Born and raised in [Constituency Name], [He/She] has always been
+                        passionate about addressing local challenges and advocating for sustainable development.
+                    </p>
+                    <p class="mb-5">
+                        With a background in <span class="font-semibold text-blue-600">[mention field, e.g., social
+                            work, law, education]</span>, [MLA's Name] brings a unique perspective to public office.
+                        [He/She] believes in inclusive growth, ensuring that every citizen has access to quality
+                        education, healthcare, and economic opportunities.
+                    </p>
+                    <p>
+                        Throughout [his/her] career, [MLA's Name] has tirelessly worked on initiatives ranging from
+                        environmental protection to enhancing public infrastructure, always striving to make
+                        [Constituency Name] a better place for all.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
+
+        <!-- Vision and Mission Section -->
+        <section id="vision" class="container mx-auto py-20 px-6 md:px-12 bg-blue-50 rounded-3xl shadow-inner-lg">
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Vision & Mission</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div
+                    class="bg-white p-10 rounded-3xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300 border border-blue-100">
+                    <h3 class="text-3xl font-bold mb-5 text-indigo-700 flex items-center">
+                        <!-- Vision icon (using Lucide Eye) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-eye text-blue-500 mr-3">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                        Vision
+                    </h3>
+                    <p class="text-xl leading-relaxed text-gray-700">
+                        To foster a vibrant, equitable, and progressive community where every individual can thrive,
+                        pursue their dreams, and contribute meaningfully to society. We envision a future built on
+                        strong values, sustainable practices, and boundless opportunities for all.
+                    </p>
+                </div>
+                <div
+                    class="bg-white p-10 rounded-3xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300 border border-blue-100">
+                    <h3 class="text-3xl font-bold mb-5 text-indigo-700 flex items-center">
+                        <!-- Mission icon (using Lucide List) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-list text-blue-500 mr-3">
+                            <line x1="8" x2="21" y1="6" y2="6" />
+                            <line x1="8" x2="21" y1="12" y2="12" />
+                            <line x1="8" x2="21" y1="18" y2="18" />
+                            <line x1="3" x2="3.01" y1="6" y2="6" />
+                            <line x1="3" x2="3.01" y1="12" y2="12" />
+                            <line x1="3" x2="3.01" y1="18" y2="18" />
+                        </svg>
+                        Mission
+                    </h3>
+                    <ul class="list-disc list-inside text-xl leading-relaxed space-y-3 text-gray-700">
+                        <li>To advocate for policies that promote social justice, economic growth, and environmental
+                            sustainability.</li>
+                        <li>To ensure transparency and accountability in governance, building public trust.</li>
+                        <li>To empower citizens through accessible education, quality health, and advanced skill
+                            development programs.</li>
+                        <li>To build stronger communities through active participation, open dialogue, and collaborative
+                            initiatives.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
+
+        <!-- Get Involved Section - Mapped from the original nav link -->
+        <section id="get-involved" class="container mx-auto py-20 px-6 md:px-12">
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Get Involved</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Join the Movement -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-hand-heart mx-auto mb-4 text-blue-600">
+                        <path
+                            d="M11 11.28a1 1 0 0 0-.34-.75L3.34 2.34a2 2 0 0 0-3 3l7.21 7.21a1 1 0 0 0 .75.34H20a2 2 0 0 0 2-2V8.56a2.92 2.92 0 0 0-2.92-2.92 2.92 2.92 0 0 0-2.92 2.92V9" />
+                        <path d="M14 14v1a2 2 0 0 0 2 2h2v-1a2 2 0 0 0-2-2h-2z" />
+                        <path d="M14 10.5V8a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2.5" />
+                        <path d="M14 17a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2z" />
+                    </svg>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Become a Member</h3>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Join our passionate team of volunteers and make a direct impact on community development. Your
+                        energy and skills are vital for our mission.
+                    </p>
+                    <button id="membershipBtnSection"
+                        class="px-8 py-3 bg-gradient-to-r from-teal-400 to-green-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition-transform duration-300">
+                        Join Now
+                    </button>
+                </div>
+                <!-- Donate Now -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-dollar-sign mx-auto mb-4 text-purple-600">
+                        <line x1="12" x2="12" y1="2" y2="22" />
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Support Our Cause</h3>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Your financial contributions empower us to expand our initiatives and reach more people in need.
+                        Every donation, big or small, makes a difference.
+                    </p>
+                    <a href="payment.html"
+                        class="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition-transform duration-300">
+                        <span>Donate Now</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-arrow-right ml-2">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
+
+        <!-- Our Members Section -->
+        <section id="members" class="container mx-auto py-20 px-6 md:px-12 bg-blue-50 rounded-3xl shadow-inner-lg">
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Esteemed Members</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Member Card 1 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/150x150/60A5FA/FFFFFF?text=Prof+Raj" alt="Prof. K. Raj Sir"
+                        class="rounded-full w-36 h-36 mx-auto mb-4 object-cover border-4 border-blue-400">
+                    <h3 class="text-xl font-bold text-blue-800 mb-1">Prof. K. Raj Sir</h3>
+                    <p class="text-gray-600 text-sm">Spokesperson & Senior Leader</p>
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-twitter">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17-19 11.6 1.1.8 2.5 1.4 4 1.4 8.2 0 12-7 12-12.7 0-.6 0-1.3-.1-1.9C19.7 5.2 21 3.8 22 4z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-linkedin">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- Member Card 2 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/150x150/BFDBFE/FFFFFF?text=Member+2" alt="Member Photo"
+                        class="rounded-full w-36 h-36 mx-auto mb-4 object-cover border-4 border-blue-400">
+                    <h3 class="text-xl font-bold text-blue-800 mb-1">Er. I.P. Gupta Pan</h3>
+                    <p class="text-gray-600 text-sm">National President</p>
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-twitter">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17-19 11.6 1.1.8 2.5 1.4 4 1.4 8.2 0 12-7 12-12.7 0-.6 0-1.3-.1-1.9C19.7 5.2 21 3.8 22 4z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-linkedin">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- Member Card 3 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/150x150/ADD8E6/FFFFFF?text=Member+3" alt="Member Photo"
+                        class="rounded-full w-36 h-36 mx-auto mb-4 object-cover border-4 border-blue-400">
+                    <h3 class="text-xl font-bold text-blue-800 mb-1">Ravi Kumar</h3>
+                    <p class="text-gray-600 text-sm">State Coordinator</p>
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-twitter">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17-19 11.6 1.1.8 2.5 1.4 4 1.4 8.2 0 12-7 12-12.7 0-.6 0-1.3-.1-1.9C19.7 5.2 21 3.8 22 4z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-linkedin">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- Member Card 4 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/150x150/87CEEB/FFFFFF?text=Member+4" alt="Member Photo"
+                        class="rounded-full w-36 h-36 mx-auto mb-4 object-cover border-4 border-blue-400">
+                    <h3 class="text-xl font-bold text-blue-800 mb-1">Priya Sharma</h3>
+                    <p class="text-gray-600 text-sm">Youth Wing Head</p>
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-twitter">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17-19 11.6 1.1.8 2.5 1.4 4 1.4 8.2 0 12-7 12-12.7 0-.6 0-1.3-.1-1.9C19.7 5.2 21 3.8 22 4z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-linkedin">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#"
+                    class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-transform duration-300">
+                    <span>View All Members</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-right ml-2">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
+
+        <!-- Vision and Mission Section -->
+        <section id="vision" class="container mx-auto py-20 px-6 md:px-12 bg-blue-50 rounded-3xl shadow-inner-lg">
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Vision & Mission</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div
+                    class="bg-white p-10 rounded-3xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300 border border-blue-100">
+                    <h3 class="text-3xl font-bold mb-5 text-indigo-700 flex items-center">
+                        <!-- Vision icon (using Lucide Eye) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-eye text-blue-500 mr-3">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                        Vision
+                    </h3>
+                    <p class="text-xl leading-relaxed text-gray-700">
+                        To foster a vibrant, equitable, and progressive community where every individual can thrive,
+                        pursue their dreams, and contribute meaningfully to society. We envision a future built on
+                        strong values, sustainable practices, and boundless opportunities for all.
+                    </p>
+                </div>
+                <div
+                    class="bg-white p-10 rounded-3xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300 border border-blue-100">
+                    <h3 class="text-3xl font-bold mb-5 text-indigo-700 flex items-center">
+                        <!-- Mission icon (using Lucide List) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-list text-blue-500 mr-3">
+                            <line x1="8" x2="21" y1="6" y2="6" />
+                            <line x1="8" x2="21" y1="12" y2="12" />
+                            <line x1="8" x2="21" y1="18" y2="18" />
+                            <line x1="3" x2="3.01" y1="6" y2="6" />
+                            <line x1="3" x2="3.01" y1="12" y2="12" />
+                            <line x1="3" x2="3.01" y1="18" y2="18" />
+                        </svg>
+                        Mission
+                    </h3>
+                    <ul class="list-disc list-inside text-xl leading-relaxed space-y-3 text-gray-700">
+                        <li>To advocate for policies that promote social justice, economic growth, and environmental
+                            sustainability.</li>
+                        <li>To ensure transparency and accountability in governance, building public trust.</li>
+                        <li>To empower citizens through accessible education, quality health, and advanced skill
+                            development programs.</li>
+                        <li>To build stronger communities through active participation, open dialogue, and collaborative
+                            initiatives.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="container mx-auto py-20 px-6 md:px-12">
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Achievements</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Achievement 1 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Improved Local Infrastructure</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Successfully spearheaded projects leading to the renovation of 50+ km of roads and significant
+                        upgrades to public parks, enhancing accessibility and quality of life for thousands.
+                    </p>
+                </div>
+                <!-- Achievement 2 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Education Empowerment</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Launched comprehensive scholarship programs benefiting over 500 deserving students and initiated
+                        digital literacy centers in remote areas, bridging the educational gap effectively.
+                    </p>
+                </div>
+                <!-- Achievement 3 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Healthcare Initiatives</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Facilitated the establishment of new state-of-the-art community health clinics and organized
+                        widespread health camps, providing free medical check-ups and crucial care to thousands of
+                        citizens.
+                    </p>
+                </div>
+                <!-- Achievement 4 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Environmental Protection</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Implemented successful large-scale tree-plantation drives and tirelessly advocated for advanced
+                        waste management systems, significantly contributing to a greener and healthier environment for
+                        future generations.
+                    </p>
+                </div>
+                <!-- Achievement 5 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Youth & Employment</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Initiated dynamic vocational training programs that empowered over 300 young individuals,
+                        helping them secure meaningful employment and build promising careers in various sectors.
+                    </p>
+                </div>
+                <!-- Achievement 6 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Community Engagement</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Organized numerous successful town halls and public consultations, ensuring that citizen voices
+                        are actively heard, respected, and incorporated into policy-making for a truly democratic
+                        process.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="container mx-auto py-20 px-6 md:px-12 bg-blue-50 rounded-3xl shadow-inner-lg">
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Gallery</h2>
+            <div class="slider-container">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="https://placehold.co/900x450/4CAF50/FFFFFF?text=Rally+Highlights"
+                            alt="Rally Highlights">
+                    </div>
+                    <div class="slide">
+                        <img src="https://placehold.co/900x450/FFC107/FFFFFF?text=Community+Meeting"
+                            alt="Community Meeting">
+                    </div>
+                    <div class="slide">
+                        <img src="https://placehold.co/900x450/2196F3/FFFFFF?text=Speech+at+Event"
+                            alt="Speech at Event">
+                    </div>
+                    <div class="slide">
+                        <img src="https://placehold.co/900x450/9C27B0/FFFFFF?text=Project+Inauguration"
+                            alt="Project Inauguration">
+                    </div>
+                </div>
+
+                <button class="slider-nav-btn prev-btn">
+                    <!-- Chevron Left icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucude-chevron-left">
+                        <path d="m15 18-6-6 6-6" />
+                    </svg>
+                </button>
+                <button class="slider-nav-btn next-btn">
+                    <!-- Chevron Right icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-chevron-right">
+                        <path d="m9 18 6-6-6-6" />
+                    </svg>
+                </button>
+
+                <div class="slider-dots">
+                    <!-- Dots will be generated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
+
+        <!-- Events Section -->
+        <section id="events" class="container mx-auto py-20 px-6 md:px-12">
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Events</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event Card 1 -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x200/93C5FD/FFFFFF?text=Event+1" alt="Event Image 1"
+                        class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">Press Conference on Bihar Elections 2025</h3>
+                        <p class="text-gray-600 text-sm mb-4">Date: May 14, 2025 | Location: Hotel Red Velvet, Patna |
+                            Time: 11:30 AM</p>
+                        <p class="text-700 leading-relaxed mb-4">
+                            Er. I.P. Gupta, National President, Indian Inquilab Party, will hold a press conference to
+                            announce candidates for the upcoming Bihar Assembly Elections 2025.
+                        </p>
+                        <a href="#"
+                            class="text-blue-600 hover:underline inline-block font-medium text-lg flex items-center">Read
+                            More <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-right ml-1">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- Event Card 2 -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x200/60A5FA/FFFFFF?text=Event+2" alt="Event Image 2"
+                        class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">Community Health Camp in District ABC</h3>
+                        <p class="text-gray-600 text-sm mb-4">Date: April 28, 2025 | Location: Community Hall, ABC
+                            District | Time: 9:00 AM - 4:00 PM</p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Our party is organizing a free health camp offering medical check-ups and consultations for
+                            all residents. Your health is our priority.
+                        </p>
+                        <a href="#"
+                            class="text-blue-600 hover:underline inline-block font-medium text-lg flex items-center">Read
+                            More <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-right ml-1">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- Event Card 3 -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x200/BFDBFE/FFFFFF?text=Event+3" alt="Event Image 3"
+                        class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">Youth Skill Development Workshop</h3>
+                        <p class="text-gray-600 text-sm mb-4">Date: March 10, 2025 | Location: Youth Center, City Hall |
+                            Time: 10:00 AM - 5:00 PM</p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            An intensive workshop designed to equip young individuals with essential skills for
+                            employment and entrepreneurship.
+                        </p>
+                        <a href="#"
+                            class="text-blue-600 hover:underline inline-block font-medium text-lg flex items-center">Read
+                            More <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-right ml-1">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#"
+                    class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-transform duration-300">
+                    <span>View All Events</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-right ml-2">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
+
+        <!-- News and Updates Section -->
+        <section id="news" class="container mx-auto py-20 px-6 md:px-12 bg-blue-50 rounded-3xl shadow-inner-lg">
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Latest News & Updates</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News Article 1 -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x200/93C5FD/FFFFFF?text=Community+Event" alt="News Image 1"
+                        class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">MLA Inaugurates New Community Hall</h3>
+                        <p class="text-gray-600 text-sm mb-4">June 14, 2025</p>
+                        <p class="text-gray-700 leading-relaxed">
+                            [MLA's Name] today inaugurated the state-of-the-art community hall, a pivotal project aimed
+                            at fostering vibrant social gatherings and rich cultural events for all residents.
+                        </p>
+                        <a href="#"
+                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">Read
+                            More <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-right ml-1">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- News Article 2 -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x200/60A5FA/FFFFFF?text=Policy+Meeting" alt="News Image 2"
+                        class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">New Policy on Sustainable Agriculture Passed
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">June 10, 2025</p>
+                        <p class="text-gray-700 leading-relaxed">
+                            A landmark policy focused on promoting sustainable agricultural practices and offering
+                            substantial support to local farmers has been successfully passed under MLA's innovative
+                            initiative.
+                        </p>
+                        <a href="#"
+                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">Read
+                            More <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-right ml-1">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- News Article 3 -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x200/BFDBFE/FFFFFF?text=Youth+Program" alt="News Image 3"
+                        class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">Youth Empowerment Workshop Attended by
+                            Thousands</h3>
+                        <p class="text-gray-600 text-sm mb-4">June 5, 2025</p>
+                        <p class="text-gray-700 leading-relaxed">
+                            The recent youth empowerment workshop, championed by [MLA's Name], saw overwhelming
+                            participation, providing crucial skill development and inspiring future leaders.
+                        </p>
+                        <a href="#"
+                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">Read
+                            More <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-right ml-1">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#"
+                    class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-transform duration-300">
+                    <span>View All News</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-right ml-2">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
+
+        <!-- Media Coverage Section -->
+        <section id="media" class="container mx-auto py-20 px-6 md:px-12">
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Media Coverage</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Media Item 1 -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x200/FFD700/FFFFFF?text=Newspaper+Article+1"
+                        alt="Newspaper Article"
+                        class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">Reservation for All Communities</h3>
+                        <p class="text-gray-600 text-sm mb-4">Source: Punjab Kesari | Date: April 17, 2025</p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Our recent protest for reservation for the poor across all communities gained significant
+                            media attention.
+                        </p>
+                        <a href="#"
+                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">View
+                            Coverage <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-external-link ml-1">
+                                <path d="M15 3h6v6" />
+                                <path d="M10 14 21 3" />
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- Media Item 2 -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x200/A0DA8A/FFFFFF?text=Rally+Coverage" alt="Rally Coverage"
+                        class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">Helicopter Campaign for Movement</h3>
+                        <p class="text-gray-600 text-sm mb-4">Source: Local News | Date: April 15, 2025</p>
+                        <p class="text-gray-700 leading-relaxed">
+                            The unique helicopter campaign for our ongoing movement has captured widespread public
+                            interest and media coverage.
+                        </p>
+                        <a href="#"
+                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">View
+                            Coverage <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-external-link ml-1">
+                                <path d="M15 3h6v6" />
+                                <path d="M10 14 21 3" />
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- Media Item 3 -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x200/ADD8E6/FFFFFF?text=Bihar+Jharkhand+News"
+                        alt="Bihar Jharkhand News"
+                        class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-blue-800">Bihar-Jharkhand First Preference</h3>
+                        <p class="text-gray-600 text-sm mb-4">Source: Bihar-Jharkhand News | Date: April 12, 2025</p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Our party's commitment to prioritizing the needs of Bihar and Jharkhand has been highlighted
+                            in recent regional news.
+                        </p>
+                        <a href="#"
+                            class="text-blue-600 hover:underline mt-5 inline-block font-medium text-lg flex items-center">View
+                            Coverage <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-external-link ml-1">
+                                <path d="M15 3h6v6" />
+                                <path d="M10 14 21 3" />
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#"
+                    class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-transform duration-300">
+                    <span>View All Media</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-right ml-2">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+
+        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
+
+        <!-- Contact Section -->
+        <section id="contact" class="container mx-auto py-20 px-6 md:px-12">
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Contact Us</h2>
+            <div class="bg-white p-10 rounded-3xl shadow-xl flex flex-col md:flex-row gap-10 border border-blue-100">
+                <div class="md:w-1/2">
+                    <p class="text-xl mb-6 text-gray-700 leading-relaxed">
+
+                    </p>
+                    <ul class="space-y-5 text-gray-700 text-lg">
+                        <li class="flex items-center">
+                            <!-- Map Pin icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-map-pin text-blue-600 mr-4 flex-shrink-0">
+                                <path d="M12 12.01V12" />
+                                <path d="M18.364 17.364A9 9 0 1 0 5.636 6.636L12 1l6.364 5.636z" />
+                            </svg>
+                            <span class="font-semibold text-gray-900">Constituency Office:</span> H-376, Rd No. 11,
+                            Shree Krishna Nagar, Nr Kidwaipuri PO, Patna, Bihar Pincode-800001
+                        </li>
+                        <li class="flex items-center">
+                            <!-- Mail icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-mail text-blue-600 mr-4 flex-shrink-0">
+                                <rect width="20" height="16" x="2" y="4" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
+                            <span class="font-semibold text-gray-900">Email:</span> info@iip.org.in
+                        </li>
+                        <li class="flex items-center">
+                            <!-- Phone icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-phone text-blue-600 mr-4 flex-shrink-0">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            <span class="font-semibold text-gray-900">Phone:</span> +91 8826428658
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-semibold mb-2">Your Name</label>
+                            <input type="text" id="name" name="name"
+                                class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
+                                placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-semibold mb-2">Your Email</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
+                                placeholder="john.doe@example.com" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-semibold mb-2">Your Message</label>
+                            <textarea id="message" name="message" rows="6"
+                                class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
+                                placeholder="Write your message here..." required></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 transform hover:scale-[1.01] active:scale-99">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10 px-6 md:px-10 mt-20 rounded-t-3xl shadow-inner-xl">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            <!-- Footer Section 1: Logo & Contact Info -->
+            <div>
+                <img src="https://placehold.co/80x80/FFFFFF/007bff?text=IIP+Logo" alt="Indian Inquilab Party Logo"
+                    class="rounded-full shadow-md mb-4" />
+                <h3 class="text-xl font-bold mb-4">Indian Inquilab Party (I.I.P)</h3>
+                <ul class="space-y-2 text-sm">
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-phone mr-2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        +91-9608695494
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-mail mr-2">
+                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
+                        info@iip.org.in
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-map-pin mr-2">
+                            <path d="M12 12.01V12" />
+                            <path d="M18.364 17.364A9 9 0 1 0 5.636 6.636L12 1l6.364 5.636z" />
+                        </svg>
+                        H-376, Rd No. 11, Shree Krishna Nagar, Nr Kidwaipuri PO, Patna, Bihar Pincode-800001
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Footer Section 2: Quick Links & Main Links -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#home" class="hover:text-blue-400 transition-colors duration-300">Home</a></li>
+                    <li><a href="#about" class="hover:text-blue-400 transition-colors duration-300">About</a></li>
+                    <li><a href="#get-involved" class="hover:text-blue-400 transition-colors duration-300">Get
+                            Involved</a></li>
+                    <li><a href="#media" class="hover:text-blue-400 transition-colors duration-300">Media</a></li>
+                    <li><a href="#election" class="hover:text-blue-400 transition-colors duration-300">Election</a></li>
+                    <li><a href="#gallery" class="hover:text-blue-400 transition-colors duration-300">Gallery</a></li>
+                    <li><a href="#contact" class="hover:text-blue-400 transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Footer Section 3: Follow Us & App Download -->
+            <div class="text-center md:text-left">
+                <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                <div class="flex justify-center md:justify-start space-x-6 mb-6">
+                    <a href="#" class="hover:text-blue-400 transition-colors duration-300" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-facebook">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="hover:text-blue-400 transition-colors duration-300" aria-label="X/Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-twitter">
+                            <path
+                                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17-19 11.6 1.1.8 2.5 1.4 4 1.4 8.2 0 12-7 12-12.7 0-.6 0-1.3-.1-1.9C19.7 5.2 21 3.8 22 4z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="hover:text-blue-400 transition-colors duration-300" aria-label="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-youtube">
+                            <path
+                                d="M2.81 8.65c-.92 2.05-.72 4.45.36 6.31C4.79 17.5 7 18 12 18s7.21-.5 8.83-3.04c1.08-1.86 1.28-4.26.36-6.31-1.2-2.68-4.29-3.42-8.83-3.42s-7.63.74-8.83 3.42z" />
+                            <path d="m9 11 3 3 3-3" />
+                        </svg>
+                    </a>
+                </div>
+                <a href="#" class="inline-block mt-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                        alt="Get it on Google Play" class="h-14">
+                </a>
+            </div>
+        </div>
+        <div class="text-center mt-12 border-t border-gray-700 pt-8">
+            <p class="text-sm">&copy; <span id="current-year-footer"></span> Indian Inquilab Party. All rights reserved.
+                ..</p>
+        </div>
+    </footer>
+
+    <!-- Membership Modal -->
+    <div id="membershipModal" class="modal-overlay fixed inset-0 flex items-center justify-center p-4">
+        <div class="modal-content relative p-10 rounded-3xl shadow-2xl animate-fade-in">
+            <button id="closeModalBtn"
+                class="absolute top-5 right-5 text-gray-500 hover:text-gray-800 text-3xl font-bold transition-transform duration-200 hover:scale-110">
+                <!-- X icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-x">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+            <h2 class="text-4xl font-bold text-center mb-8 text-blue-700">Become a Member</h2>
+
+            <form id="membershipForm" class="space-y-6">
+                <div>
+                    <label for="memberName" class="block text-gray-700 font-semibold mb-2">Your Name</label>
+                    <input type="text" id="memberName" name="memberName"
+                        class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
+                        placeholder="Enter your full name" required>
+                </div>
+                <div>
+                    <label for="memberEmail" class="block text-gray-700 font-semibold mb-2">Your Email</label>
+                    <input type="email" id="memberEmail" name="memberEmail"
+                        class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
+                        placeholder="your.email@example.com" required>
+                </div>
+                <div>
+                    <label for="memberPhone" class="block text-gray-700 font-semibold mb-2">Phone Number</label>
+                    <input type="tel" id="memberPhone" name="memberPhone"
+                        class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
+                        placeholder="e.g., +91 9876543210" required>
+                </div>
+                <div>
+                    <label for="memberAddress" class="block text-gray-700 font-semibold mb-2">Your Address</label>
+                    <textarea id="memberAddress" name="memberAddress" rows="3"
+                        class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
+                        placeholder="Your full address"></textarea>
+                </div>
+                <div>
+                    <label for="memberVoterID" class="block text-gray-700 font-semibold mb-2">Voter ID
+                        (Optional)</label>
+                    <input type="text" id="memberVoterID" name="memberVoterID"
+                        class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
+                        placeholder="Optional">
+                </div>
+                <button type="submit"
+                    class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 transform hover:scale-[1.01] active:scale-99">
+                    Submit Application
+                </button>
+            </form>
+            <p id="membership-status" class="mt-4 text-center text-sm hidden"></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Navbar Mobile Menu Toggle
+            const navbarMobileMenuButton = document.getElementById('navbar-mobile-menu-button');
+            const navbarMobileMenu = document.getElementById('navbar-mobile-menu');
+            const navbarMenuIcon = document.getElementById('navbar-menu-icon');
+            const navbarCloseIcon = document.getElementById('navbar-close-icon');
+
+            navbarMobileMenuButton.addEventListener('click', function () {
+                const isHidden = navbarMobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    navbarMobileMenu.classList.remove('hidden');
+                    navbarMobileMenu.classList.add('flex');
+                    navbarMenuIcon.classList.add('hidden');
+                    navbarCloseIcon.classList.remove('hidden');
+                } else {
+                    navbarMobileMenu.classList.add('hidden');
+                    navbarMobileMenu.classList.remove('flex');
+                    navbarMenuIcon.classList.remove('hidden');
+                    navbarCloseIcon.classList.add('hidden');
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            navbarMobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    // Close the mobile menu
+                    navbarMobileMenu.classList.add('hidden');
+                    navbarMobileMenu.classList.remove('flex');
+                    navbarMenuIcon.classList.remove('hidden');
+                    navbarCloseIcon.classList.add('hidden');
+                    // Scroll to the section
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+
+            // Membership Modal Logic
+            // The previous 'membershipBtn' was commented out in the HTML.
+            // Check if it exists from the previous version, otherwise rely on the new buttons.
+            const mainMembershipBtn = document.getElementById('membershipBtn');
+            const membershipBtnHero = document.getElementById('membershipBtnHero'); // Button in Hero section
+            const membershipBtnSection = document.getElementById('membershipBtnSection'); // Button in Get Involved section
+            const membershipModal = document.getElementById('membershipModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const membershipForm = document.getElementById('membershipForm');
+            const membershipStatus = document.getElementById('membership-status');
+
+            function openModal() {
+                membershipModal.style.display = 'flex';
+                // Add a small delay for opacity transition to take effect
+                setTimeout(() => membershipModal.style.opacity = '1', 10);
+            }
+
+            function closeModal() {
+                membershipModal.style.opacity = '0';
+                // Listen for the transition to end before setting display: none for smoother animation
+                membershipModal.addEventListener('transitionend', function handler() {
+                    membershipModal.style.display = 'none';
+                    // Remove the event listener to prevent it from firing multiple times unnecessarily
+                    membershipModal.removeEventListener('transitionend', handler);
+                }, { once: true }); // Use { once: true } to automatically remove the listener after it fires
+            }
+
+            // Event listeners for opening the modal
+            if (mainMembershipBtn) {
+                mainMembershipBtn.addEventListener('click', openModal);
+            }
+            if (membershipBtnHero) {
+                membershipBtnHero.addEventListener('click', openModal);
+            }
+            if (membershipBtnSection) {
+                membershipBtnSection.addEventListener('click', openModal);
+            }
+
+            // Event listeners for closing the modal
+            closeModalBtn.addEventListener('click', closeModal);
+            membershipModal.addEventListener('click', function (event) {
+                // Ensure the click happened directly on the overlay, not on the modal content itself
+                if (event.target === membershipModal) {
+                    closeModal();
+                }
+            });
+
+            membershipForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission
+                membershipStatus.classList.remove('hidden', 'text-green-600', 'text-red-600'); // Clean previous status classes
+                membershipStatus.textContent = 'Submitting your application...';
+                membershipStatus.classList.add('text-gray-600'); // Add a neutral color for processing
+
+                // Simulate form submission with a delay
+                setTimeout(() => {
+                    membershipStatus.textContent = 'Application submitted successfully! We will contact you soon.';
+                    membershipStatus.classList.remove('text-gray-600');
+                    membershipStatus.classList.add('text-green-600'); // Green for success
+                    membershipForm.reset(); // Clear form fields
+                    // Optional: Automatically close modal after successful submission
+                    // setTimeout(closeModal, 2000); 
+                }, 2000); // Simulate a 2-second submission time
+            });
+
+            // Gallery Slider Logic
+            const slidesContainer = document.querySelector('.slides');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const dotsContainer = document.querySelector('.slider-dots');
+
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            // Create dots dynamically based on the number of slides
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot', 'w-3', 'h-3', 'rounded-full', 'bg-white', 'opacity-60', 'cursor-pointer', 'transition-all', 'duration-300');
+                if (i === 0) dot.classList.add('active'); // Set first dot as active initially
+                dot.dataset.index = i; // Store index for navigation
+                dotsContainer.appendChild(dot);
+                dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
+            }
+
+            const allDots = document.querySelectorAll('.dot'); // Get all created dots
+
+            // Function to update the slider position and active dot
+            function updateSliderPosition() {
+                slidesContainer.style.transform = `translateX(${-currentIndex * 100}%)`;
+                allDots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('active'); // Add active class to current dot
+                    } else {
+                        dot.classList.remove('active'); // Remove active class from others
+                    }
+                });
+            }
+
+            // Function to navigate to a specific slide
+            function goToSlide(index) {
+                currentIndex = index;
+                // Loop around if reaching the end or beginning
+                if (currentIndex < 0) {
+                    currentIndex = totalSlides - 1;
+                } else if (currentIndex >= totalSlides) {
+                    currentIndex = 0;
+                }
+                updateSliderPosition(); // Update the visual position
+            }
+
+            // Event listeners for previous and next buttons
+            prevBtn.addEventListener('click', () => {
+                goToSlide(currentIndex - 1);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                goToSlide(currentIndex + 1);
+            });
+
+            // Auto-advance slider (optional feature)
+            let slideInterval;
+            function startAutoSlide() {
+                stopAutoSlide(); // Clear any existing interval before starting a new one
+                slideInterval = setInterval(() => {
+                    goToSlide(currentIndex + 1);
+                }, 5000); // Change slide every 5 seconds
+            }
+
+            function stopAutoSlide() {
+                clearInterval(slideInterval); // Stop the auto-slide interval
+            }
+
+            // Start auto slide on page load
+            startAutoSlide();
+
+            // Pause auto slide when mouse enters the slider area
+            slidesContainer.addEventListener('mouseenter', stopAutoSlide);
+            // Resume auto slide when mouse leaves the slider area
+            slidesContainer.addEventListener('mouseleave', startAutoSlide);
+
+
+            // Set current year in footer dynamically
+            document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+
+</html>
