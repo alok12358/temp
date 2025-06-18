@@ -33,15 +33,29 @@
             /* Removes extra space below image */
         }
 
-        /* Custom modal overlay styles */
+        /* Custom modal overlay styles (Existing tt.html styles updated) */
         .modal-overlay {
             background-color: rgba(0, 0, 0, 0.7);
             z-index: 999;
             display: none;
             /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            inset: 0;
+            /* top:0; right:0; bottom:0; left:0; */
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            /* For smooth fade-in/out */
             transition: opacity 0.3s ease-in-out;
             cursor: pointer;
             /* Indicate it's clickable to close */
+            padding: 1rem;
+            /* Added padding for responsiveness on smaller screens */
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
         }
 
         .modal-content {
@@ -50,8 +64,8 @@
             /* More rounded */
             max-width: 90%;
             /* Responsive width */
-            width: 450px;
-            /* Slightly wider */
+            width: 500px;
+            /* Adjusted to new design preference */
             z-index: 1000;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
             /* Stronger shadow */
@@ -59,7 +73,38 @@
             /* Set maximum height to 90% of viewport height */
             overflow-y: auto;
             /* Enable vertical scrolling if content overflows */
+            position: relative;
+            /* For close button positioning */
+            transform: translateY(-20px);
+            /* For slight animation */
+            transition: transform 0.3s ease-in-out;
+            padding: 2.5rem;
+            /* Match new design preference */
         }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: #aaa;
+            font-size: 1.875rem;
+            /* 30px */
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
 
         /* Animations for hero section text */
         @keyframes fadeInDown {
@@ -188,116 +233,96 @@
             border-color: #1d4ed8;
             transform: scale(1.2);
         }
+
+        /* Custom styles for button hover effects (from previous payment page) */
+        .btn-primary {
+            background-image: linear-gradient(to right, #4F46E5 0%, #6366F1 50%, #4F46E5 100%);
+            background-size: 200% auto;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-position: right center;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background-image: linear-gradient(to right, #10B981 0%, #34D399 50%, #10B981 100%);
+            background-size: 200% auto;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-position: right center;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 
 <body class="text-gray-800">
 
-    <!-- Top Bar -->
-    <div class="bg-gray-900 text-white text-sm py-2 px-6 md:px-10">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-1 md:space-y-0">
-            <div class="flex items-center space-x-4">
-                <a href="tel:+918826428658" class="flex items-center hover:text-blue-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-phone mr-1">
-                        <path
-                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                    </svg>
-                    <span>+91 8826428658</span>
-                </a>
-                <a href="mailto:info@iip.org.in" class="flex items-center hover:text-blue-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-mail mr-1">
-                        <rect width="20" height="16" x="2" y="4" rx="2" />
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                    </svg>
-                    <span>info@iip.org.in</span>
-                </a>
-                <a href="#" class="flex items-center hover:text-blue-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-log-in mr-1">
-                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                        <polyline points="10 17 15 12 10 7" />
-                        <line x1="15" x2="3" y1="12" y2="12" />
-                    </svg>
-                    <span>लॉग इन करें</span>
-                </a>
-            </div>
-            <div class="flex items-center hover:text-blue-300">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-map-pin mr-1">
-                    <path d="M12 12.01V12" />
-                    <path d="M18.364 17.364A9 9 0 1 0 5.636 6.636L12 1l6.364 5.636z" />
-                </svg>
-                <span>H-376, Rd No. 11, Shree Krishna Nagar, Nr Kidwaipuri PO, patna ,Bihar Pincode-800001</span>
-            </div>
-        </div>
-    </div>
-
     <!-- Navigation Bar -->
     <header
-        class="bg-gradient-to-r from-blue-800 to-indigo-700 text-white shadow-xl py-4 px-6 md:px-10 sticky top-0 z-50">
-        <nav class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <!-- Placeholder for Logo - Replaces MLA's Name text as per screenshot -->
+        class="bg-gradient-to-r from-blue-800 to-indigo-700 text-white shadow-xl py-2 px-4 md:px-10 sticky top-0 z-50 w-full">
+        <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-3 w-full md:w-auto justify-center md:justify-start">
                 <img src="IMG-20250513-WA0013-1536x307.jpg" alt="इंडियन इंक़लाब पार्टी लोगो"
-                    class=" w-60 h-20 object-contain mx-auto my-4 rounded-lg shadow-lg" />
-                
+                    class="w-48 md:w-60 h-auto object-contain my-2 md:my-4 rounded-lg shadow-lg" />
             </div>
 
-            <!-- Mobile Menu Button for Navbar -->
-            <div class="md:hidden">
+            <div class="md:hidden absolute right-4 top-1/2 -translate-y-1/2">
                 <button id="navbar-mobile-menu-button"
                     class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
                     aria-label="Toggle navigation">
-                    <!-- Menu icon -->
                     <svg id="navbar-menu-icon" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
-                    <!-- Close icon -->
                     <svg id="navbar-close-icon" class="h-8 w-8 hidden" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
 
-            <!-- Desktop Navigation -->
             <div id="navbar-desktop-menu"
                 class="hidden md:flex mt-4 md:mt-0 space-y-2 md:space-y-0 md:space-x-8 flex-col md:flex-row items-center font-semibold text-lg">
-                <a href="#home" class="hover:text-blue-300 transition-colors duration-300">Home</a>
-                <a href="#about" class="hover:text-blue-300 transition-colors duration-300">About</a>
-                <a href="#get-involved" class="hover:text-blue-300 transition-colors duration-300">Get involved</a>
-                <a href="#media" class="hover:text-blue-300 transition-colors duration-300">Media</a>
-                <a href="#election" class="hover:text-blue-300 transition-colors duration-300">Election</a>
-                <a href="#gallery" class="hover:text-blue-300 transition-colors duration-300">Gallery</a>
-                <a href="#contact" class="hover:text-blue-300 transition-colors duration-300">Contact</a>
+                <a href="#home"
+                    class="py-2 px-3 rounded-md border border-transparent hover:border-blue-300 hover:text-blue-300 transition-all duration-300">Home</a>
+                <a href="#about"
+                    class="py-2 px-3 rounded-md border border-transparent hover:border-blue-300 hover:text-blue-300 transition-all duration-300">About</a>
+                <a href="#get-involved"
+                    class="py-2 px-3 rounded-md border border-transparent hover:border-blue-300 hover:text-blue-300 transition-all duration-300">Get
+                    involved</a>
+                <a href="#media"
+                    class="py-2 px-3 rounded-md border border-transparent hover:border-blue-300 hover:text-blue-300 transition-all duration-300">Media</a>
+                <a href="#election"
+                    class="py-2 px-3 rounded-md border border-transparent hover:border-blue-300 hover:text-blue-300 transition-all duration-300">Election</a>
+                <a href="#gallery"
+                    class="py-2 px-3 rounded-md border border-transparent hover:border-blue-300 hover:text-blue-300 transition-all duration-300">Gallery</a>
+                <a href="#contact"
+                    class="py-2 px-3 rounded-md border border-transparent hover:border-blue-300 hover:text-blue-300 transition-all duration-300">Contact</a>
             </div>
         </nav>
-        <!-- Mobile Navigation (hidden by default, shown by JS) -->
         <div id="navbar-mobile-menu" class="md:hidden bg-blue-800 pt-4 pb-2 px-6 hidden">
             <div class="flex flex-col items-center space-y-2 text-lg font-semibold">
                 <a href="#home"
-                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Home</a>
+                    class="block w-full text-center py-2 px-3 rounded-md border border-transparent hover:border-blue-300 hover:bg-blue-700 transition-all duration-300">Home</a>
                 <a href="#about"
-                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">About</a>
+                    class="block w-full text-center py-2 px-3 rounded-md border border-transparent hover:border-blue-300 hover:bg-blue-700 transition-all duration-300">About</a>
                 <a href="#get-involved"
-                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Get
+                    class="block w-full text-center py-2 px-3 rounded-md border border-transparent hover:border-blue-300 hover:bg-blue-700 transition-all duration-300">Get
                     involved</a>
                 <a href="#media"
-                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">media</a>
+                    class="block w-full text-center py-2 px-3 rounded-md border border-transparent hover:border-blue-300 hover:bg-blue-700 transition-all duration-300">Media</a>
                 <a href="#election"
-                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Election</a>
+                    class="block w-full text-center py-2 px-3 rounded-md border border-transparent hover:border-blue-300 hover:bg-blue-700 transition-all duration-300">Election</a>
                 <a href="#gallery"
-                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Gallery</a>
+                    class="block w-full text-center py-2 px-3 rounded-md border border-transparent hover:border-blue-300 hover:bg-blue-700 transition-all duration-300">Gallery</a>
                 <a href="#contact"
-                    class="block w-full text-center py-2 hover:bg-blue-700 rounded-md transition-colors duration-300">Contact</a>
+                    class="block w-full text-center py-2 px-3 rounded-md border border-transparent hover:border-blue-300 hover:bg-blue-700 transition-all duration-300">Contact</a>
             </div>
         </div>
     </header>
@@ -391,7 +416,7 @@
                             </svg>
                         </div>
                         <p class="text-gray-700 text-sm mb-4">अपने बहुमूल्य योगदान से हमारे मिशन का समर्थन करें।</p>
-                        <a href="payment.html"
+                        <a href="#membership-content-section"
                             class="block w-full bg-purple-600 text-white font-semibold py-2 text-center rounded-full hover:bg-purple-700 transition-colors duration-300">
                             Pay &rarr;
                         </a>
@@ -399,6 +424,230 @@
                 </div>
             </div>
         </section>
+
+        <!-- New Membership and Payment Section -->
+        <section id="membership-content-section"
+            class="container mx-auto p-4 md:p-8 flex items-center justify-center min-h-[80vh]">
+            <div class="bg-white rounded-xl shadow-2xl p-6 md:p-10 max-w-4xl w-full">
+                <h2
+                    class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-600">
+                    हमारी पार्टी से जुड़ें
+                </h2>
+
+                <!-- Membership Options Section -->
+                <div id="membership-selection" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <!-- Simple Member Card -->
+                    <div
+                        class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6 flex flex-col items-center text-center shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-3xl font-bold text-blue-700 mb-3">साधारण सदस्य</h3>
+                        <p class="text-5xl font-extrabold text-gray-900 mb-6">₹20<span
+                                class="text-lg font-normal text-gray-600">/वार्षिक</span></p>
+                        <ul class="text-gray-700 space-y-2 mb-8 text-left w-full max-w-xs">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>मूलभूत पहुँच</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>ईमेल अपडेट्स</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>कारण का समर्थन करें</li>
+                        </ul>
+                        <button data-plan="साधारण सदस्य" data-price="20"
+                            class="select-plan-btn btn-primary text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                            साधारण सदस्यता चुनें
+                        </button>
+                    </div>
+
+                    <!-- Active Member Card -->
+                    <div
+                        class="bg-gradient-to-br from-green-50 to-teal-50 border border-green-200 rounded-2xl p-6 flex flex-col items-center text-center shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-3xl font-bold text-green-700 mb-3">सक्रिय सदस्य</h3>
+                        <p class="text-5xl font-extrabold text-gray-900 mb-6">₹200<span
+                                class="text-lg font-normal text-gray-600">/वार्षिक</span></p>
+                        <ul class="text-gray-700 space-y-2 mb-8 text-left w-full max-w-xs">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>सभी साधारण लाभ</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>मतदान का अधिकार</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>आयोजन छूट</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>विशेष सामग्री</li>
+                        </ul>
+                        <button data-plan="सक्रिय सदस्य" data-price="200"
+                            class="select-plan-btn btn-secondary text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50">
+                            सक्रिय सदस्यता चुनें
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Member Information & Payment Form (Initially hidden) -->
+                <div id="member-payment-form-section"
+                    class="hidden bg-gray-50 border border-gray-200 rounded-xl p-6 md:p-8 shadow-inner">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">सदस्यता और भुगतान विवरण</h3>
+
+                    <div
+                        class="mb-6 bg-blue-100 border border-blue-300 text-blue-800 px-4 py-3 rounded-md flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
+                        <div class="mb-2 sm:mb-0">
+                            <span class="font-semibold text-lg" id="summary-plan-name"></span>:
+                            <span id="summary-plan-price" class="text-2xl font-bold ml-2"></span>
+                        </div>
+                        <button id="change-plan-btn"
+                            class="text-blue-700 hover:text-blue-900 font-medium text-sm mt-2 sm:mt-0 px-3 py-1 rounded-md bg-blue-200 hover:bg-blue-300 transition-colors">
+                            प्लान बदलें
+                        </button>
+                    </div>
+
+                    <!-- Combined Member Information and Payment Form -->
+                    <form id="membership-payment-form" class="space-y-6">
+                        <!-- Personal Information Fields -->
+                        <h4 class="text-xl font-semibold text-gray-700 border-b pb-2 mb-4">व्यक्तिगत जानकारी</h4>
+                        <div>
+                            <label for="memberName" class="block text-gray-700 text-sm font-semibold mb-2">आपका नाम
+                                <span class="text-red-500">*</span></label>
+                            <input type="text" id="memberName" name="memberName"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                placeholder="अपना पूरा नाम दर्ज करें" required>
+                        </div>
+                        <div>
+                            <label for="memberPhone" class="block text-gray-700 text-sm font-semibold mb-2">फ़ोन नंबर
+                                <span class="text-red-500">*</span></label>
+                            <input type="tel" id="memberPhone" name="memberPhone"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                placeholder="उदा. +91 9876543210" pattern="[0-9]{10}"
+                                title="कृपया 10 अंकों का मोबाइल नंबर दर्ज करें।" required>
+                        </div>
+                        <div>
+                            <label for="memberAddress" class="block text-gray-700 text-sm font-semibold mb-2">आपका पता
+                                <span class="text-red-500">*</span></label>
+                            <textarea id="memberAddress" name="memberAddress" rows="3"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                placeholder="आपका पूरा पता" required></textarea>
+                        </div>
+                        <div>
+                            <label for="memberEmail" class="block text-gray-700 text-sm font-semibold mb-2">आपका ईमेल
+                                (वैकल्पिक)</label>
+                            <input type="email" id="memberEmail" name="memberEmail"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                placeholder="your.email@example.com">
+                        </div>
+                        <div>
+                            <label for="memberVoterID" class="block text-gray-700 text-sm font-semibold mb-2">मतदाता
+                                पहचान पत्र (वैकल्पिक)</label>
+                            <input type="text" id="memberVoterID" name="memberVoterID"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                placeholder="वैकल्पिक">
+                        </div>
+
+                        <!-- Payment Method Selection -->
+                        <h4 class="text-xl font-semibold text-gray-700 border-b pb-2 mb-4 pt-6">भुगतान विधि</h4>
+                        <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                            <label
+                                class="flex-1 flex items-center justify-center p-4 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-blue-500 transition-colors has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50">
+                                <input type="radio" name="paymentMethod" value="upi"
+                                    class="form-radio h-5 w-5 text-blue-600 focus:ring-blue-500" checked>
+                                <span class="ml-2 text-gray-800 font-medium">UPI</span>
+                            </label>
+                            <label
+                                class="flex-1 flex items-center justify-center p-4 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-blue-500 transition-colors has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50">
+                                <input type="radio" name="paymentMethod" value="card"
+                                    class="form-radio h-5 w-5 text-blue-600 focus:ring-blue-500">
+                                <span class="ml-2 text-gray-800 font-medium">कार्ड</span>
+                            </label>
+                        </div>
+
+                        <!-- Conditional Payment Fields -->
+                        <div id="upi-fields" class="space-y-6">
+                            <div>
+                                <label for="upi-id" class="block text-gray-700 text-sm font-semibold mb-2">UPI
+                                    ID</label>
+                                <input type="text" id="upi-id"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    placeholder="yourname@bankupi" required>
+                            </div>
+                        </div>
+
+                        <div id="card-fields" class="hidden space-y-6">
+                            <div>
+                                <label for="card-number" class="block text-gray-700 text-sm font-semibold mb-2">कार्ड
+                                    नंबर</label>
+                                <input type="text" id="card-number"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    placeholder="**** **** **** ****" pattern="[0-9]{16}"
+                                    title="कृपया 16 अंकों का कार्ड नंबर दर्ज करें।" required>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                                <div>
+                                    <label for="expiry-date"
+                                        class="block text-gray-700 text-sm font-semibold mb-2">समाप्ति तिथि
+                                        (MM/YY)</label>
+                                    <input type="text" id="expiry-date"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/([0-9]{2})"
+                                        title=" कृपया MM/YY प्रारूप में समाप्ति तिथि दर्ज करें।" required>
+                                </div>
+                                <div>
+                                    <label for="cvv" class="block text-gray-700 text-sm font-semibold mb-2">CVV</label>
+                                    <input type="text" id="cvv"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder="***" pattern="[0-9]{3,4}"
+                                        title=" कृपया 3 या 4 अंकों का CVV दर्ज करें।" required>
+                                </div>
+                                <div class="sm:col-span-1">
+                                    <label for="zip-code" class="block text-gray-700 text-sm font-semibold mb-2">ज़िप
+                                        कोड</label>
+                                    <input type="text" id="zip-code"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder="XXXXXX" pattern="[0-9]{6}"
+                                        title=" कृपया 6 अंकों का ज़िप कोड दर्ज करें।" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="card-holder-name"
+                                    class="block text-gray-700 text-sm font-semibold mb-2">कार्डधारक का नाम</label>
+                                <input type="text" id="card-holder-name"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    placeholder="जॉन डो" required>
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                            class="btn-primary w-full text-white font-bold py-3 rounded-md shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                            अभी भुगतान करें
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
 
         <!-- About MLA Section -->
         <section id="about" class="container mx-auto py-20 px-6 md:px-12">
@@ -442,266 +691,9 @@
 
         <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
 
-        <!-- Vision and Mission Section -->
+        <!-- Vision and Mission Section (Duplicate, check if needed) -->
         <section id="vision" class="container mx-auto py-20 px-6 md:px-12 bg-blue-50 rounded-3xl shadow-inner-lg">
             <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Vision And Mission</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div
-                    class="bg-white p-10 rounded-3xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300 border border-blue-100">
-                    <h3 class="text-3xl font-bold mb-5 text-indigo-700 flex items-center">
-                        <!-- Vision icon (using Lucide Eye) -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-eye text-blue-500 mr-3">
-                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                            <circle cx="12" cy="12" r="3" />
-                        </svg>
-                        Vision
-                    </h3>
-                    <p class="text-xl leading-relaxed text-gray-700">
-                        एक जीवंत, न्यायसंगत और प्रगतिशील समुदाय को बढ़ावा देना जहाँ प्रत्येक व्यक्ति आगे बढ़ सके, अपने
-                        सपनों को पूरा कर सके और समाज में सार्थक योगदान दे सके। हम मजबूत मूल्यों, सतत प्रथाओं और सभी के
-                        लिए असीमित अवसरों पर निर्मित भविष्य की कल्पना करते हैं।
-                    </p>
-                </div>
-                <div
-                    class="bg-white p-10 rounded-3xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300 border border-blue-100">
-                    <h3 class="text-3xl font-bold mb-5 text-indigo-700 flex items-center">
-                        <!-- Mission icon (using Lucide List) -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-list text-blue-500 mr-3">
-                            <line x1="8" x2="21" y1="6" y2="6" />
-                            <line x1="8" x2="21" y1="12" y2="12" />
-                            <line x1="8" x2="21" y1="18" y2="18" />
-                            <line x1="3" x2="3.01" y1="6" y2="6" />
-                            <line x1="3" x2="3.01" y1="12" y2="12" />
-                            <line x1="3" x2="3.01" y1="18" y2="18" />
-                        </svg>
-                        Mission
-                    </h3>
-                    <ul class="list-disc list-inside text-xl leading-relaxed space-y-3 text-gray-700">
-                        <li>सामाजिक न्याय, आर्थिक विकास और पर्यावरणीय स्थिरता को बढ़ावा देने वाली नीतियों की वकालत करना।
-                        </li>
-                        <li>शासन में पारदर्शिता और जवाबदेही सुनिश्चित करना, जनविश्वास का निर्माण करना।</li>
-                        <li>सुलभ शिक्षा, गुणवत्तापूर्ण स्वास्थ्य और उन्नत कौशल विकास कार्यक्रमों के माध्यम से नागरिकों
-                            को सशक्त बनाना।</li>
-                        <li>सक्रिय भागीदारी, खुले संवाद और सहयोगात्मक पहलों के माध्यम से मजबूत समुदाय बनाना।</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
-
-        <!-- Get Involved Section - Mapped from the original nav link -->
-        <section id="get-involved" class="container mx-auto py-20 px-6 md:px-12">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Get Involved</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Join the Movement -->
-                <div
-                    class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-hand-heart mx-auto mb-4 text-blue-600">
-                        <path
-                            d="M11 11.28a1 1 0 0 0-.34-.75L3.34 2.34a2 2 0 0 0-3 3l7.21 7.21a1 1 0 0 0 .75.34H20a2 2 0 0 0 2-2V8.56a2.92 2.92 0 0 0-2.92-2.92 2.92 2.92 0 0 0-2.92 2.92V9" />
-                        <path d="M14 14v1a2 2 0 0 0 2 2h2v-1a2 2 0 0 0-2-2h-2z" />
-                        <path d="M14 10.5V8a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2.5" />
-                        <path d="M14 17a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2z" />
-                    </svg>
-                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Become a Member</h3>
-                    <p class="text-gray-700 leading-relaxed mb-6">
-                        हमारे उत्साही स्वयंसेवकों की टीम में शामिल हों और समुदाय के विकास पर सीधा प्रभाव डालें। आपकी
-                        ऊर्जा और कौशल हमारे मिशन के लिए महत्वपूर्ण हैं।
-                    </p>
-                    <button id="membershipBtnSection"
-                        class="px-8 py-3 bg-gradient-to-r from-teal-400 to-green-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition-transform duration-300">
-                        Join Now
-                    </button>
-                </div>
-                <!-- Donate Now -->
-                <div
-                    class="bg-white p-8 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-dollar-sign mx-auto mb-4 text-purple-600">
-                        <line x1="12" x2="12" y1="2" y2="22" />
-                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                    </svg>
-                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Support 0ur Cause </h3>
-                    <p class="text-gray-700 leading-relaxed mb-6">
-                        आपके वित्तीय योगदान से हमें अपनी पहलों का विस्तार करने और अधिक जरूरतमंद लोगों तक पहुंचने में मदद
-                        मिलती है। हर दान, चाहे छोटा हो या बड़ा, फर्क डालता है।
-                    </p>
-                    <a href="payment.html"
-                        class="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition-transform duration-300">
-                        <span>Donate Now</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-arrow-right ml-2">
-                            <path d="M5 12h14" />
-                            <path d="m12 5 7 7-7 7" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
-
-        <!-- Our Members Section -->
-        <section id="members" class="container mx-auto py-20 px-6 md:px-12 bg-blue-50 rounded-3xl shadow-inner-lg">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">हमारे सम्मानित सदस्य</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Member Card 1 -->
-                <div
-                    class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <img src="./05/IMG-20250513-WA0010-1280x1536.jpg" alt="प्रोफेसर के. राज सर"
-                        class=" w-50 h-50 mx-auto mb-4 object-cover border-4 border-blue-400">
-                    <h3 class="text-xl font-bold text-blue-800 mb-1">Prof K. Raj Sir</h3>
-                    <p class="text-gray-600 text-sm">प्रवक्ता एवं वरिष्ठ नेता</p>
-                    <div class="flex justify-center space-x-4 mt-4">
-                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-facebook">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                            </svg></a>
-                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-twitter">
-                                <path
-                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17-19 11.6 1.1.8 2.5 1.4 4 1.4 8.2 0 12-7 12-12.7 0-.6 0-1.3-.1-1.9C19.7 5.2 21 3.8 22 4z" />
-                            </svg></a>
-                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-linkedin">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                <rect width="4" height="12" x="2" y="9" />
-                                <circle cx="4" cy="4" r="2" />
-                            </svg></a>
-                    </div>
-                </div>
-                <!-- Member Card 2 -->
-                <div
-                    class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <img src="./05/rajendra-patel-block-pramukh.jpeg" alt="सदस्य फोटो"
-                        class=" w-50 h-50 mx-auto mb-4 object-cover border-4 border-blue-400">
-                    <h3 class="text-xl font-bold text-blue-800 mb-1">Rajendra Patel</h3>
-                    <p class="text-gray-600 text-sm">Block Pramukh</p>
-                    <div class="flex justify-center space-x-4 mt-4">
-                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-facebook">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                            </svg></a>
-                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-twitter">
-                                <path
-                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17-19 11.6 1.1.8 2.5 1.4 4 1.4 8.2 0 12-7 12-12.7 0-.6 0-1.3-.1-1.9C19.7 5.2 21 3.8 22 4z" />
-                            </svg></a>
-                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-linkedin">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                <rect width="4" height="12" x="2" y="9" />
-                                <circle cx="4" cy="4" r="2" />
-                            </svg></a>
-                    </div>
-                </div>
-                <!-- Member Card 3 -->
-                <div
-                    class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <img src="./05/prayagraj_anil-kumar-patel.png" alt="सदस्य फोटो"
-                        class="w-50 h-50 mx-auto mb-4 object-cover border-4 border-blue-400">
-                    <h3 class="text-xl font-bold text-blue-800 mb-1">Anil Kumar Patel</h3>
-                    <p class="text-gray-600 text-sm"></p>
-                    <div class="flex justify-center space-x-4 mt-4">
-                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-facebook">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                            </svg></a>
-                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-twitter">
-                                <path
-                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17-19 11.6 1.1.8 2.5 1.4 4 1.4 8.2 0 12-7 12-12.7 0-.6 0-1.3-.1-1.9C19.7 5.2 21 3.8 22 4z" />
-                            </svg></a>
-                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-linkedin">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                <rect width="4" height="12" x="2" y="9" />
-                                <circle cx="4" cy="4" r="2" />
-                            </svg></a>
-                    </div>
-                </div>
-                <!-- Member Card 4 -->
-                <div
-                    class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <img src="./05/Prayagraj_ashok-kesharvani_zps.png" alt="सदस्य फोटो"
-                        class="w-50 h-50 mx-auto mb-4 object-cover border-4 border-blue-400">
-                    <h3 class="text-xl font-bold text-blue-800 mb-1">Ashok Kesharvani</h3>
-                    <p class="text-gray-600 text-sm"></p>
-                    <div class="flex justify-center space-x-4 mt-4">
-                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-facebook">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                            </svg></a>
-                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-twitter">
-                                <path
-                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17-19 11.6 1.1.8 2.5 1.4 4 1.4 8.2 0 12-7 12-12.7 0-.6 0-1.3-.1-1.9C19.7 5.2 21 3.8 22 4z" />
-                            </svg></a>
-                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-linkedin">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                <rect width="4" height="12" x="2" y="9" />
-                                <circle cx="4" cy="4" r="2" />
-                            </svg></a>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-12">
-                <a href="#"
-                    class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-transform duration-300">
-                    <span>सभी सदस्य देखें</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-arrow-right ml-2">
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
-                    </svg>
-                </a>
-            </div>
-        </section>
-
-        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
-
-        <!-- Vision and Mission Section -->
-        <section id="vision" class="container mx-auto py-20 px-6 md:px-12 bg-blue-50 rounded-3xl shadow-inner-lg">
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Vision and Mission</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div
                     class="bg-white p-10 rounded-3xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300 border border-blue-100">
@@ -886,7 +878,7 @@
                         </h3>
                         <p class="text-gray-600 text-sm mb-4">दिनांक: 14 मई, 2025 | स्थान: होटल रेड वेलवेट, पटना | समय:
                             सुबह 11:30 बजे</p>
-                        <p class="text-700 leading-relaxed mb-4">
+                        <p class="text-gray-700 leading-relaxed mb-4">
                             इंडियन इंक़लाब पार्टी के राष्ट्रीय अध्यक्ष ई. आई.पी. गुप्ता आगामी बिहार विधानसभा चुनाव 2025
                             के लिए उम्मीदवारों की घोषणा करने के लिए एक प्रेस कॉन्फ्रेंस करेंगे।
                         </p>
@@ -925,7 +917,7 @@
                     <img src="https://iip.org.in/wp-content/uploads/2025/05/IMG_20250514_13294800.jpeg"
                         class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
                     <div class="p-8">
-                        <p class="text-700 leading-relaxed mb-4">
+                        <p class="text-gray-700 leading-relaxed mb-4">
                             इंडियन इंक़लाब पार्टी के राष्ट्रीय अध्यक्ष ई. आई.पी. गुप्ता आगामी बिहार विधानसभा चुनाव 2025
                             के लिए उम्मीदवारों की घोषणा करने के लिए एक प्रेस कॉन्फ्रेंस करेंगे।
                         </p>
@@ -953,6 +945,7 @@
                 </a>
             </div>
         </section>
+
 
         <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
 
@@ -1308,168 +1301,59 @@
         </div>
     </footer>
 
-    <!-- Membership Modal -->
-    <div id="membershipModal" class="modal-overlay fixed inset-0 flex items-center justify-center p-4">
-        <div class="modal-content relative p-10 rounded-3xl shadow-2xl animate-fade-in">
-            <button id="closeModalBtn"
-                class="absolute top-5 right-5 text-gray-500 hover:text-gray-800 text-3xl font-bold transition-transform duration-200 hover:scale-110">
-                <!-- X icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-x">
-                    <path d="M18 6 6 18" />
-                    <path d="m6 6 12 12" />
-                </svg>
-            </button>
-            <h2 class="text-4xl font-bold text-center mb-8 text-blue-700">सदस्य बनें</h2>
-
-            <form id="membershipForm" class="space-y-6">
-                <div>
-                    <label for="memberName" class="block text-gray-700 font-semibold mb-2">आपका नाम</label>
-                    <input type="text" id="memberName" name="memberName"
-                        class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
-                        placeholder="अपना पूरा नाम दर्ज करें" required>
-                </div>
-                <div>
-                    <label for="memberEmail" class="block text-gray-700 font-semibold mb-2">आपका ईमेल</label>
-                    <input type="email" id="memberEmail" name="memberEmail"
-                        class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
-                        placeholder="your.email@example.com" required>
-                </div>
-                <div>
-                    <label for="memberPhone" class="block text-gray-700 font-semibold mb-2">फ़ोन नंबर</label>
-                    <input type="tel" id="memberPhone" name="memberPhone"
-                        class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
-                        placeholder="उदा. +91 9876543210" required>
-                </div>
-                <div>
-                    <label for="memberAddress" class="block text-gray-700 font-semibold mb-2">आपका पता</label>
-                    <textarea id="memberAddress" name="memberAddress" rows="3"
-                        class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
-                        placeholder="आपका पूरा पता"></textarea>
-                </div>
-                <div>
-                    <label for="memberVoterID" class="block text-gray-700 font-semibold mb-2">मतदाता पहचान पत्र
-                        (वैकल्पिक)</label>
-                    <input type="text" id="memberVoterID" name="memberVoterID"
-                        class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
-                        placeholder="वैकल्पिक">
-                </div>
-                <button type="submit"
-                    class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 transform hover:scale-[1.01] active:scale-99">
-                    आवेदन जमा करें
-                </button>
-            </form>
-            <p id="membership-status" class="mt-4 text-center text-sm hidden"></p>
+    <!-- Payment/Loading/Success Modal (from membership-payment-single-file) -->
+    <div id="statusModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-button" id="closeModalButton">&times;</span>
+            <div id="modal-content-area" class="text-center">
+                <!-- Content will be injected here by JavaScript -->
+            </div>
         </div>
     </div>
 
+    <!-- JavaScript embedded here -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Navbar Mobile Menu Toggle
+            // --- Navbar Mobile Menu Toggle Logic ---
             const navbarMobileMenuButton = document.getElementById('navbar-mobile-menu-button');
             const navbarMobileMenu = document.getElementById('navbar-mobile-menu');
             const navbarMenuIcon = document.getElementById('navbar-menu-icon');
             const navbarCloseIcon = document.getElementById('navbar-close-icon');
 
-            navbarMobileMenuButton.addEventListener('click', function () {
-                const isHidden = navbarMobileMenu.classList.contains('hidden');
-                if (isHidden) {
-                    navbarMobileMenu.classList.remove('hidden');
-                    navbarMobileMenu.classList.add('flex');
-                    navbarMenuIcon.classList.add('hidden');
-                    navbarCloseIcon.classList.remove('hidden');
-                } else {
-                    navbarMobileMenu.classList.add('hidden');
-                    navbarMobileMenu.classList.remove('flex');
-                    navbarMenuIcon.classList.remove('hidden');
-                    navbarCloseIcon.classList.add('hidden');
-                }
-            });
-
-            // Close mobile menu when a link is clicked
-            navbarMobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    // Close the mobile menu
-                    navbarMobileMenu.classList.add('hidden');
-                    navbarMobileMenu.classList.remove('flex');
-                    navbarMenuIcon.classList.remove('hidden');
-                    navbarCloseIcon.classList.add('hidden');
-                    // Scroll to the section
-                    const targetId = link.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
+            if (navbarMobileMenuButton && navbarMobileMenu && navbarMenuIcon && navbarCloseIcon) {
+                navbarMobileMenuButton.addEventListener('click', function () {
+                    const isHidden = navbarMobileMenu.classList.contains('hidden');
+                    if (isHidden) {
+                        navbarMobileMenu.classList.remove('hidden');
+                        navbarMobileMenu.classList.add('flex');
+                        navbarMenuIcon.classList.add('hidden');
+                        navbarCloseIcon.classList.remove('hidden');
+                    } else {
+                        navbarMobileMenu.classList.add('hidden');
+                        navbarMobileMenu.classList.remove('flex');
+                        navbarMenuIcon.classList.remove('hidden');
+                        navbarCloseIcon.classList.add('hidden');
                     }
                 });
-            });
 
-
-            // Membership Modal Logic
-            // The previous 'membershipBtn' was commented out in the HTML.
-            // Check if it exists from the previous version, otherwise rely on the new buttons.
-            const mainMembershipBtn = document.getElementById('membershipBtn');
-            const membershipBtnHero = document.getElementById('membershipBtnHero'); // Button in Hero section
-            const membershipBtnSection = document.getElementById('membershipBtnSection'); // Button in Get Involved section
-            const membershipModal = document.getElementById('membershipModal');
-            const closeModalBtn = document.getElementById('closeModalBtn');
-            const membershipForm = document.getElementById('membershipForm');
-            const membershipStatus = document.getElementById('membership-status');
-
-            function openModal() {
-                membershipModal.style.display = 'flex';
-                // Add a small delay for opacity transition to take effect
-                setTimeout(() => membershipModal.style.opacity = '1', 10);
+                // Close mobile menu when a link is clicked
+                navbarMobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navbarMobileMenu.classList.add('hidden');
+                        navbarMobileMenu.classList.remove('flex');
+                        navbarMenuIcon.classList.remove('hidden');
+                        navbarCloseIcon.classList.add('hidden');
+                        // Ensure smooth scroll for anchor links
+                        const targetId = link.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
             }
 
-            function closeModal() {
-                membershipModal.style.opacity = '0';
-                // Listen for the transition to end before setting display: none for smoother animation
-                membershipModal.addEventListener('transitionend', function handler() {
-                    membershipModal.style.display = 'none';
-                    // Remove the event listener to prevent it from firing multiple times unnecessarily
-                    membershipModal.removeEventListener('transitionend', handler);
-                }, { once: true }); // Use { once: true } to automatically remove the listener after it fires
-            }
-
-            // Event listeners for opening the modal
-            if (mainMembershipBtn) {
-                mainMembershipBtn.addEventListener('click', openModal);
-            }
-            if (membershipBtnHero) {
-                membershipBtnHero.addEventListener('click', openModal);
-            }
-            if (membershipBtnSection) {
-                membershipBtnSection.addEventListener('click', openModal);
-            }
-
-            // Event listeners for closing the modal
-            closeModalBtn.addEventListener('click', closeModal);
-            membershipModal.addEventListener('click', function (event) {
-                // Ensure the click happened directly on the overlay, not on the modal content itself
-                if (event.target === membershipModal) {
-                    closeModal();
-                }
-            });
-
-            membershipForm.addEventListener('submit', function (event) {
-                event.preventDefault(); // Prevent default form submission
-                membershipStatus.classList.remove('hidden', 'text-green-600', 'text-red-600'); // Clean previous status classes
-                membershipStatus.textContent = 'आपका आवेदन जमा किया जा रहा है...'; // Hindi: Submitting your application...
-                membershipStatus.classList.add('text-gray-600'); // Add a neutral color for processing
-
-                // Simulate form submission with a delay
-                setTimeout(() => {
-                    membershipStatus.textContent = 'आवेदन सफलतापूर्वक जमा हो गया! हम जल्द ही आपसे संपर्क करेंगे।'; // Hindi: Application submitted successfully! We will contact you soon.
-                    membershipStatus.classList.remove('text-gray-600');
-                    membershipStatus.classList.add('text-green-600'); // Green for success
-                    membershipForm.reset(); // Clear form fields
-                    // Optional: Automatically close modal after successful submission
-                    // setTimeout(closeModal, 2000); 
-                }, 2000); // Simulate a 2-second submission time
-            });
-
-            // Gallery Slider Logic
+            // --- Gallery Slider Logic (from tt.html) ---
             const slidesContainer = document.querySelector('.slides');
             const slides = document.querySelectorAll('.slide');
             const prevBtn = document.querySelector('.prev-btn');
@@ -1480,20 +1364,24 @@
             const totalSlides = slides.length;
 
             // Create dots dynamically based on the number of slides
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('dot', 'w-3', 'h-3', 'rounded-full', 'bg-white', 'opacity-60', 'cursor-pointer', 'transition-all', 'duration-300');
-                if (i === 0) dot.classList.add('active'); // Set first dot as active initially
-                dot.dataset.index = i; // Store index for navigation
-                dotsContainer.appendChild(dot);
-                dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
+            if (dotsContainer) { // Check if dotsContainer exists to prevent errors
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot', 'w-3', 'h-3', 'rounded-full', 'bg-white', 'opacity-60', 'cursor-pointer', 'transition-all', 'duration-300');
+                    if (i === 0) dot.classList.add('active'); // Set first dot as active initially
+                    dot.dataset.index = i; // Store index for navigation
+                    dotsContainer.appendChild(dot);
+                    dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
+                }
             }
 
             const allDots = document.querySelectorAll('.dot'); // Get all created dots
 
             // Function to update the slider position and active dot
             function updateSliderPosition() {
-                slidesContainer.style.transform = `translateX(${-currentIndex * 100}%)`;
+                if (slidesContainer) { // Check if slidesContainer exists
+                    slidesContainer.style.transform = `translateX(${-currentIndex * 100}%)`;
+                }
                 allDots.forEach((dot, index) => {
                     if (index === currentIndex) {
                         dot.classList.add('active'); // Add active class to current dot
@@ -1516,13 +1404,9 @@
             }
 
             // Event listeners for previous and next buttons
-            prevBtn.addEventListener('click', () => {
-                goToSlide(currentIndex - 1);
-            });
+            if (prevBtn) prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); });
+            if (nextBtn) nextBtn.addEventListener('click', () => { goToSlide(currentIndex + 1); });
 
-            nextBtn.addEventListener('click', () => {
-                goToSlide(currentIndex + 1);
-            });
 
             // Auto-advance slider (optional feature)
             let slideInterval;
@@ -1537,17 +1421,325 @@
                 clearInterval(slideInterval); // Stop the auto-slide interval
             }
 
-            // Start auto slide on page load
-            startAutoSlide();
+            // Start auto slide on page load, and pause/resume on hover
+            if (slidesContainer) {
+                startAutoSlide();
+                slidesContainer.addEventListener('mouseenter', stopAutoSlide);
+                slidesContainer.addEventListener('mouseleave', startAutoSlide);
+            }
 
-            // Pause auto slide when mouse enters the slider area
-            slidesContainer.addEventListener('mouseenter', stopAutoSlide);
-            // Resume auto slide when mouse leaves the slider area
-            slidesContainer.addEventListener('mouseleave', startAutoSlide);
+
+            // --- Membership & Payment Page Logic (from previous payment page) ---
+            const selectPlanButtons = document.querySelectorAll('.select-plan-btn');
+            const membershipSelectionSection = document.getElementById('membership-selection');
+            const memberPaymentFormSection = document.getElementById('member-payment-form-section');
+            const summaryPlanName = document.getElementById('summary-plan-name');
+            const summaryPlanPrice = document.getElementById('summary-plan-price');
+            const changePlanButton = document.getElementById('change-plan-btn');
+            const membershipPaymentForm = document.getElementById('membership-payment-form');
+            const statusModal = document.getElementById('statusModal');
+            const closeModalButton = document.getElementById('closeModalButton');
+            const modalContentArea = document.getElementById('modal-content-area');
+
+            const upiFields = document.getElementById('upi-fields');
+            const cardFields = document.getElementById('card-fields');
+            const paymentMethodRadios = document.querySelectorAll('input[name="paymentMethod"]');
+
+            let currentPlan = null; // To store the selected plan details
+
+            // Function to show the modal with dynamic content
+            function showModal(contentHtml) {
+                modalContentArea.innerHTML = contentHtml;
+                statusModal.style.display = 'flex'; // Make it visible first
+                // Use a small timeout to allow display change to apply before opacity transition
+                setTimeout(() => {
+                    statusModal.classList.add('active'); // Then trigger opacity transition
+                }, 10); // Small delay, adjust if needed
+            }
+
+            // Function to hide the modal
+            function hideModal() {
+                statusModal.classList.remove('active'); // Trigger fade-out and transform
+                statusModal.addEventListener('transitionend', function handler() {
+                    statusModal.style.display = 'none'; // Hide after transition
+                    statusModal.removeEventListener('transitionend', handler);
+                }, { once: true });
+            }
+
+            // Event listeners for plan selection
+            selectPlanButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const planName = button.dataset.plan;
+                    const planPrice = button.dataset.price; // Price in Rupees
+
+                    currentPlan = { name: planName, price: planPrice };
+
+                    summaryPlanName.textContent = planName;
+                    summaryPlanPrice.textContent = `₹${planPrice}`; // Display with Rupee symbol
+
+                    // Hide plan selection, show payment form
+                    if (membershipSelectionSection) membershipSelectionSection.classList.add('hidden');
+                    if (memberPaymentFormSection) memberPaymentFormSection.classList.remove('hidden');
+
+                    // Reset form and set default payment method to UPI
+                    if (membershipPaymentForm) membershipPaymentForm.reset();
+                    const defaultUpiRadio = document.querySelector('input[name="paymentMethod"][value="upi"]');
+                    if (defaultUpiRadio) {
+                        defaultUpiRadio.checked = true;
+                    }
+                    if (upiFields) upiFields.classList.remove('hidden');
+                    if (cardFields) cardFields.classList.add('hidden');
+                    // Manually trigger change to set required attributes correctly
+                    if (defaultUpiRadio) defaultUpiRadio.dispatchEvent(new Event('change'));
+                });
+            });
+
+            // Event listener for changing plan
+            if (changePlanButton) {
+                changePlanButton.addEventListener('click', () => {
+                    currentPlan = null; // Clear selected plan
+                    if (memberPaymentFormSection) memberPaymentFormSection.classList.add('hidden');
+                    if (membershipSelectionSection) membershipSelectionSection.classList.remove('hidden');
+                    if (membershipPaymentForm) membershipPaymentForm.reset(); // Clear form fields
+                });
+            }
+
+            // Handle payment method radio button changes
+            paymentMethodRadios.forEach(radio => {
+                radio.addEventListener('change', (event) => {
+                    if (event.target.value === 'upi') {
+                        if (upiFields) upiFields.classList.remove('hidden');
+                        if (cardFields) cardFields.classList.add('hidden');
+                        // Set required attributes for UPI fields
+                        document.getElementById('upi-id')?.setAttribute('required', 'required');
+                        // Remove required attributes from card fields (using optional chaining for safety)
+                        document.getElementById('card-number')?.removeAttribute('required');
+                        document.getElementById('expiry-date')?.removeAttribute('required');
+                        document.getElementById('cvv')?.removeAttribute('required');
+                        document.getElementById('zip-code')?.removeAttribute('required');
+                        document.getElementById('card-holder-name')?.removeAttribute('required');
+                    } else if (event.target.value === 'card') {
+                        if (upiFields) upiFields.classList.add('hidden');
+                        if (cardFields) cardFields.classList.remove('hidden');
+                        // Set required attributes for Card fields
+                        document.getElementById('upi-id')?.removeAttribute('required');
+                        // Add required attributes to card fields
+                        document.getElementById('card-number')?.setAttribute('required', 'required');
+                        document.getElementById('expiry-date')?.setAttribute('required', 'required');
+                        document.getElementById('cvv')?.setAttribute('required', 'required');
+                        document.getElementById('zip-code')?.setAttribute('required', 'required');
+                        document.getElementById('card-holder-name')?.setAttribute('required', 'required');
+                    }
+                });
+            });
+
+            // Simulate form submission
+            if (membershipPaymentForm) {
+                membershipPaymentForm.addEventListener('submit', async (event) => {
+                    event.preventDefault(); // Prevent actual form submission
+
+                    // Collect member information
+                    const memberName = document.getElementById('memberName').value;
+                    const memberPhone = document.getElementById('memberPhone').value;
+                    const memberAddress = document.getElementById('memberAddress').value;
+                    const memberEmail = document.getElementById('memberEmail').value;
+                    const memberVoterID = document.getElementById('memberVoterID').value;
+                    const selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value;
+
+                    // Basic client-side validation for required fields
+                    if (!memberName || !memberPhone || !memberAddress || !selectedPaymentMethod) {
+                        showModal(`
+                            <svg class="mx-auto h-16 w-16 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">त्रुटि!</h3>
+                            <p class="text-gray-700 mb-4">कृपया सभी आवश्यक फ़ील्ड भरें और भुगतान विधि चुनें।</p>
+                            <button id="modal-ok-button" class="btn-primary text-white font-semibold py-2 px-6 rounded-md shadow hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                                ठीक है
+                            </button>
+                        `);
+                        const modalOkButton = document.getElementById('modal-ok-button');
+                        if (modalOkButton) {
+                            modalOkButton.onclick = hideModal;
+                        }
+                        return;
+                    }
+
+                    // Additional payment specific validation based on selected method
+                    let paymentFieldMissing = false;
+                    if (selectedPaymentMethod === 'upi') {
+                        if (!document.getElementById('upi-id')?.value) {
+                            paymentFieldMissing = true;
+                        }
+                    } else if (selectedPaymentMethod === 'card') {
+                        if (!document.getElementById('card-number')?.value ||
+                            !document.getElementById('expiry-date')?.value ||
+                            !document.getElementById('cvv')?.value ||
+                            !document.getElementById('zip-code')?.value ||
+                            !document.getElementById('card-holder-name')?.value) {
+                            paymentFieldMissing = true;
+                        }
+                    }
+
+                    if (paymentFieldMissing) {
+                        showModal(`
+                            <svg class="mx-auto h-16 w-16 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">त्रुटि!</h3>
+                            <p class="text-gray-700 mb-4">कृपया चयनित भुगतान विधि के लिए सभी आवश्यक विवरण भरें।</p>
+                            <button id="modal-ok-button" class="btn-primary text-white font-semibold py-2 px-6 rounded-md shadow hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                                ठीक है
+                            </button>
+                        `);
+                        const modalOkButton = document.getElementById('modal-ok-button');
+                        if (modalOkButton) {
+                            modalOkButton.onclick = hideModal;
+                        }
+                        return;
+                    }
+
+
+                    // Show processing modal
+                    showModal(`
+                        <svg class="animate-spin mx-auto h-16 w-16 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">भुगतान संसाधित हो रहा है...</h3>
+                        <p class="text-gray-700 mb-4">कृपया प्रतीक्षा करें।</p>
+                    `);
+
+                    // Simulate network request delay for payment
+                    await new Promise(resolve => setTimeout(resolve, 2500)); // Simulate 2.5 seconds payment processing
+
+                    // --- Payment Simulation Result (Always Success for this example) ---
+                    const paymentSuccess = true; // In a real app, this would be determined by payment gateway response
+
+                    if (paymentSuccess) {
+                        // Simulate WhatsApp Confirmation
+                        console.log(`WhatsApp: Confirmation for ${currentPlan.name} membership (₹${currentPlan.price}) sent to ${memberPhone}.`);
+                        // Simulate SMS Confirmation
+                        console.log(`SMS: Confirmation for ${currentPlan.name} membership (₹${currentPlan.price}) sent to ${memberPhone}.`);
+
+                        // Display success modal
+                        showModal(`
+                            <svg class="mx-auto h-16 w-16 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">भुगतान सफल!</h3>
+                            <p class="text-gray-700 mb-4">आप अब एक ${currentPlan.name} सदस्य हैं।</p>
+                            <p class="text-gray-600 text-sm mb-4">हमने आपके फ़ोन नंबर पर एक पुष्टि WhatsApp और SMS भेजा है।</p>
+                            <button id="modal-ok-button" class="btn-secondary text-white font-semibold py-2 px-6 rounded-md shadow hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50">
+                                ठीक है
+                            </button>
+                        `);
+                        const modalOkButton = document.getElementById('modal-ok-button');
+                        if (modalOkButton) {
+                            modalOkButton.onclick = () => {
+                                hideModal();
+                                // Optional: Redirect to a thank you page or homepage
+                                // window.location.href = '/thank-you';
+                                // Reset the form and return to plan selection after success
+                                if (membershipPaymentForm) membershipPaymentForm.reset();
+                                if (memberPaymentFormSection) memberPaymentFormSection.classList.add('hidden');
+                                if (membershipSelectionSection) membershipSelectionSection.classList.remove('hidden');
+                            };
+                        }
+                    } else {
+                        // Display error modal (for a real scenario)
+                        showModal(`
+                            <svg class="mx-auto h-16 w-16 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2A9 9 0 111 12a9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">भुगतान असफल!</h3>
+                            <p class="text-gray-700 mb-4">आपके भुगतान में कोई समस्या आ गई। कृपया पुनः प्रयास करें।</p>
+                            <button id="modal-ok-button" class="btn-primary text-white font-semibold py-2 px-6 rounded-md shadow hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                                ठीक है
+                            </button>
+                        `);
+                        const modalOkButton = document.getElementById('modal-ok-button');
+                        if (modalOkButton) {
+                            modalOkButton.onclick = hideModal;
+                        }
+                    }
+                });
+            }
+
+            // Close modal events
+            if (closeModalButton) closeModalButton.addEventListener('click', hideModal);
+            if (statusModal) {
+                statusModal.addEventListener('click', (e) => {
+                    if (e.target === statusModal) {
+                        hideModal();
+                    }
+                });
+            }
+
+            // Keyboard accessibility for modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && statusModal && statusModal.classList.contains('active')) {
+                    hideModal();
+                }
+            });
+
+            // Handle the "Join Us" buttons from the hero and get-involved sections
+            const membershipBtnHero = document.getElementById('membershipBtnHero');
+            const membershipBtnSection = document.getElementById('membershipBtnSection');
+            const membershipContentSection = document.getElementById('membership-content-section');
+
+            if (membershipBtnHero) {
+                membershipBtnHero.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (membershipContentSection) {
+                        membershipContentSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    // Ensure membership selection is visible when scrolling to the section
+                    if (membershipSelectionSection) membershipSelectionSection.classList.remove('hidden');
+                    if (memberPaymentFormSection) memberPaymentFormSection.classList.add('hidden');
+                });
+            }
+
+            if (membershipBtnSection) {
+                membershipBtnSection.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (membershipContentSection) {
+                        membershipContentSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    // Ensure membership selection is visible when scrolling to the section
+                    if (membershipSelectionSection) membershipSelectionSection.classList.remove('hidden');
+                    if (memberPaymentFormSection) memberPaymentFormSection.classList.add('hidden');
+                });
+            }
+
+            // Also handle the "Donate Us" link in the header and get-involved section
+            // The existing `a href="payment.html"` should now link to `#membership-content-section`
+            // and trigger the same logic as the membership buttons.
+            document.querySelectorAll('a[href="payment.html"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (membershipContentSection) {
+                        membershipContentSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    // Optionally, you might want to automatically select "Active Member" for donations
+                    // For now, it will just show the membership selection
+                    if (membershipSelectionSection) membershipSelectionSection.classList.remove('hidden');
+                    if (memberPaymentFormSection) memberPaymentFormSection.classList.add('hidden');
+                });
+            });
 
 
             // Set current year in footer dynamically
-            document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+            const currentYearFooter = document.getElementById('current-year-footer');
+            if (currentYearFooter) {
+                currentYearFooter.textContent = new Date().getFullYear();
+            }
+
+            // Initial setup for payment method fields based on default checked radio
+            const initialUpiRadio = document.querySelector('input[name="paymentMethod"][value="upi"]');
+            if (initialUpiRadio) {
+                initialUpiRadio.dispatchEvent(new Event('change'));
+            }
         });
     </script>
 </body>
