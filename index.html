@@ -9,6 +9,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -33,7 +35,7 @@
             /* Removes extra space below image */
         }
 
-        /* Custom modal overlay styles (Existing tt.html styles updated) */
+        /* Custom modal overlay styles */
         .modal-overlay {
             background-color: rgba(0, 0, 0, 0.7);
             z-index: 999;
@@ -48,8 +50,6 @@
             opacity: 0;
             /* For smooth fade-in/out */
             transition: opacity 0.3s ease-in-out;
-            cursor: pointer;
-            /* Indicate it's clickable to close */
             padding: 1rem;
             /* Added padding for responsiveness on smaller screens */
         }
@@ -507,10 +507,10 @@
                     </div>
                 </div>
 
-                <!-- Member Information & Payment Form (Initially hidden) -->
+                <!-- Member Information & Payment Form (Initially hidden by JS) -->
                 <div id="member-payment-form-section"
                     class="hidden bg-gray-50 border border-gray-200 rounded-xl p-6 md:p-8 shadow-inner">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">सदस्यता और भुगतान विवरण</h3>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">सदस्यता और व्यक्तिगत विवरण</h3>
 
                     <div
                         class="mb-6 bg-blue-100 border border-blue-300 text-blue-800 px-4 py-3 rounded-md flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
@@ -524,10 +524,8 @@
                         </button>
                     </div>
 
-                    <!-- Combined Member Information and Payment Form -->
+                    <!-- Personal Information Form for Razorpay Prefill -->
                     <form id="membership-payment-form" class="space-y-6">
-                        <!-- Personal Information Fields -->
-                        <h4 class="text-xl font-semibold text-gray-700 border-b pb-2 mb-4">व्यक्तिगत जानकारी</h4>
                         <div>
                             <label for="memberName" class="block text-gray-700 text-sm font-semibold mb-2">आपका नाम
                                 <span class="text-red-500">*</span></label>
@@ -563,78 +561,6 @@
                             <input type="text" id="memberVoterID" name="memberVoterID"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 placeholder="वैकल्पिक">
-                        </div>
-
-                        <!-- Payment Method Selection -->
-                        <h4 class="text-xl font-semibold text-gray-700 border-b pb-2 mb-4 pt-6">भुगतान विधि</h4>
-                        <div class="flex flex-col sm:flex-row gap-4 mb-6">
-                            <label
-                                class="flex-1 flex items-center justify-center p-4 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-blue-500 transition-colors has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50">
-                                <input type="radio" name="paymentMethod" value="upi"
-                                    class="form-radio h-5 w-5 text-blue-600 focus:ring-blue-500" checked>
-                                <span class="ml-2 text-gray-800 font-medium">UPI</span>
-                            </label>
-                            <label
-                                class="flex-1 flex items-center justify-center p-4 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-blue-500 transition-colors has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50">
-                                <input type="radio" name="paymentMethod" value="card"
-                                    class="form-radio h-5 w-5 text-blue-600 focus:ring-blue-500">
-                                <span class="ml-2 text-gray-800 font-medium">कार्ड</span>
-                            </label>
-                        </div>
-
-                        <!-- Conditional Payment Fields -->
-                        <div id="upi-fields" class="space-y-6">
-                            <div>
-                                <label for="upi-id" class="block text-gray-700 text-sm font-semibold mb-2">UPI
-                                    ID</label>
-                                <input type="text" id="upi-id"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                    placeholder="yourname@bankupi" required>
-                            </div>
-                        </div>
-
-                        <div id="card-fields" class="hidden space-y-6">
-                            <div>
-                                <label for="card-number" class="block text-gray-700 text-sm font-semibold mb-2">कार्ड
-                                    नंबर</label>
-                                <input type="text" id="card-number"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                    placeholder="**** **** **** ****" pattern="[0-9]{16}"
-                                    title="कृपया 16 अंकों का कार्ड नंबर दर्ज करें।" required>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                                <div>
-                                    <label for="expiry-date"
-                                        class="block text-gray-700 text-sm font-semibold mb-2">समाप्ति तिथि
-                                        (MM/YY)</label>
-                                    <input type="text" id="expiry-date"
-                                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                        placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/([0-9]{2})"
-                                        title=" कृपया MM/YY प्रारूप में समाप्ति तिथि दर्ज करें।" required>
-                                </div>
-                                <div>
-                                    <label for="cvv" class="block text-gray-700 text-sm font-semibold mb-2">CVV</label>
-                                    <input type="text" id="cvv"
-                                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                        placeholder="***" pattern="[0-9]{3,4}"
-                                        title=" कृपया 3 या 4 अंकों का CVV दर्ज करें।" required>
-                                </div>
-                                <div class="sm:col-span-1">
-                                    <label for="zip-code" class="block text-gray-700 text-sm font-semibold mb-2">ज़िप
-                                        कोड</label>
-                                    <input type="text" id="zip-code"
-                                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                        placeholder="XXXXXX" pattern="[0-9]{6}"
-                                        title=" कृपया 6 अंकों का ज़िप कोड दर्ज करें।" required>
-                                </div>
-                            </div>
-                            <div>
-                                <label for="card-holder-name"
-                                    class="block text-gray-700 text-sm font-semibold mb-2">कार्डधारक का नाम</label>
-                                <input type="text" id="card-holder-name"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                    placeholder="जॉन डो" required>
-                            </div>
                         </div>
 
                         <button type="submit"
@@ -738,6 +664,156 @@
                         <li>सक्रिय भागीदारी, खुले संवाद और सहयोगात्मक पहलों के माध्यम से मजबूत समुदाय बनाना।</li>
                     </ul>
                 </div>
+            </div>
+        </section>
+
+        <hr class="border-t-4 border-blue-200 my-16 mx-auto w-1/4 rounded-full">
+
+        <!-- member -->
+        <!-- Our Members Section -->
+        <section id="members" class="container mx-auto py-20 px-6 md:px-12 bg-blue-50 rounded-3xl shadow-inner-lg">
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">हमारे सम्मानित सदस्य</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Member Card 1 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <img src="./05/IMG-20250513-WA0010-1280x1536.jpg" alt="प्रोफेसर के. राज सर"
+                        class=" w-50 h-50 mx-auto mb-4 object-cover border-4 border-blue-400">
+                    <h3 class="text-xl font-bold text-blue-800 mb-1">Prof K. Raj Sir</h3>
+                    <p class="text-gray-600 text-sm">प्रवक्ता एवं वरिष्ठ नेता</p>
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-twitter">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17-19 11.6 1.1.8 2.5 1.4 4 1.4 8.2 0 12-7 12-12.7 0-.6 0-1.3-.1-1.9C19.7 5.2 21 3.8 22 4z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-linkedin">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- Member Card 2 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <img src="./05/rajendra-patel-block-pramukh.jpeg" alt="सदस्य फोटो"
+                        class=" w-50 h-50 mx-auto mb-4 object-cover border-4 border-blue-400">
+                    <h3 class="text-xl font-bold text-blue-800 mb-1">Rajendra Patel</h3>
+                    <p class="text-gray-600 text-sm">Block Pramukh</p>
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-twitter">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17-19 11.6 1.1.8 2.5 1.4 4 1.4 8.2 0 12-7 12-12.7 0-.6 0-1.3-.1-1.9C19.7 5.2 21 3.8 22 4z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-linkedin">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- Member Card 3 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <img src="./05/prayagraj_anil-kumar-patel.png" alt="सदस्य फोटो"
+                        class="w-50 h-50 mx-auto mb-4 object-cover border-4 border-blue-400">
+                    <h3 class="text-xl font-bold text-blue-800 mb-1">Anil Kumar Patel</h3>
+                    <p class="text-gray-600 text-sm"></p>
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-twitter">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17-19 11.6 1.1.8 2.5 1.4 4 1.4 8.2 0 12-7 12-12.7 0-.6 0-1.3-.1-1.9C19.7 5.2 21 3.8 22 4z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-linkedin">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- Member Card 4 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-blue-200 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <img src="./05/Prayagraj_ashok-kesharvani_zps.png" alt="सदस्य फोटो"
+                        class="w-50 h-50 mx-auto mb-4 object-cover border-4 border-blue-400">
+                    <h3 class="text-xl font-bold text-blue-800 mb-1">Ashok Kesharvani</h3>
+                    <p class="text-gray-600 text-sm"></p>
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-twitter">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17-19 11.6 1.1.8 2.5 1.4 4 1.4 8.2 0 12-7 12-12.7 0-.6 0-1.3-.1-1.9C19.7 5.2 21 3.8 22 4z" />
+                            </svg></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-linkedin">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#"
+                    class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-transform duration-300">
+                    <span>सभी सदस्य देखें</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-right ml-2">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </a>
             </div>
         </section>
 
@@ -1301,7 +1377,7 @@
         </div>
     </footer>
 
-    <!-- Payment/Loading/Success Modal (from membership-payment-single-file) -->
+    <!-- Payment/Loading/Success Modal -->
     <div id="statusModal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-button" id="closeModalButton">&times;</span>
@@ -1353,7 +1429,7 @@
                 });
             }
 
-            // --- Gallery Slider Logic (from tt.html) ---
+            // --- Gallery Slider Logic ---
             const slidesContainer = document.querySelector('.slides');
             const slides = document.querySelectorAll('.slide');
             const prevBtn = document.querySelector('.prev-btn');
@@ -1364,29 +1440,29 @@
             const totalSlides = slides.length;
 
             // Create dots dynamically based on the number of slides
-            if (dotsContainer) { // Check if dotsContainer exists to prevent errors
+            if (dotsContainer) {
                 for (let i = 0; i < totalSlides; i++) {
                     const dot = document.createElement('div');
                     dot.classList.add('dot', 'w-3', 'h-3', 'rounded-full', 'bg-white', 'opacity-60', 'cursor-pointer', 'transition-all', 'duration-300');
-                    if (i === 0) dot.classList.add('active'); // Set first dot as active initially
-                    dot.dataset.index = i; // Store index for navigation
+                    if (i === 0) dot.classList.add('active');
+                    dot.dataset.index = i;
                     dotsContainer.appendChild(dot);
                     dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
                 }
             }
 
-            const allDots = document.querySelectorAll('.dot'); // Get all created dots
+            const allDots = document.querySelectorAll('.dot');
 
             // Function to update the slider position and active dot
             function updateSliderPosition() {
-                if (slidesContainer) { // Check if slidesContainer exists
+                if (slidesContainer) {
                     slidesContainer.style.transform = `translateX(${-currentIndex * 100}%)`;
                 }
                 allDots.forEach((dot, index) => {
                     if (index === currentIndex) {
-                        dot.classList.add('active'); // Add active class to current dot
+                        dot.classList.add('active');
                     } else {
-                        dot.classList.remove('active'); // Remove active class from others
+                        dot.classList.remove('active');
                     }
                 });
             }
@@ -1394,42 +1470,38 @@
             // Function to navigate to a specific slide
             function goToSlide(index) {
                 currentIndex = index;
-                // Loop around if reaching the end or beginning
                 if (currentIndex < 0) {
                     currentIndex = totalSlides - 1;
                 } else if (currentIndex >= totalSlides) {
                     currentIndex = 0;
                 }
-                updateSliderPosition(); // Update the visual position
+                updateSliderPosition();
             }
 
             // Event listeners for previous and next buttons
             if (prevBtn) prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); });
             if (nextBtn) nextBtn.addEventListener('click', () => { goToSlide(currentIndex + 1); });
 
-
-            // Auto-advance slider (optional feature)
+            // Auto-advance slider
             let slideInterval;
             function startAutoSlide() {
-                stopAutoSlide(); // Clear any existing interval before starting a new one
+                stopAutoSlide();
                 slideInterval = setInterval(() => {
                     goToSlide(currentIndex + 1);
-                }, 5000); // Change slide every 5 seconds
+                }, 5000);
             }
 
             function stopAutoSlide() {
-                clearInterval(slideInterval); // Stop the auto-slide interval
+                clearInterval(slideInterval);
             }
 
-            // Start auto slide on page load, and pause/resume on hover
             if (slidesContainer) {
                 startAutoSlide();
                 slidesContainer.addEventListener('mouseenter', stopAutoSlide);
                 slidesContainer.addEventListener('mouseleave', startAutoSlide);
             }
 
-
-            // --- Membership & Payment Page Logic (from previous payment page) ---
+            // --- Membership & Payment Page Logic with Razorpay ---
             const selectPlanButtons = document.querySelectorAll('.select-plan-btn');
             const membershipSelectionSection = document.getElementById('membership-selection');
             const memberPaymentFormSection = document.getElementById('member-payment-form-section');
@@ -1441,56 +1513,83 @@
             const closeModalButton = document.getElementById('closeModalButton');
             const modalContentArea = document.getElementById('modal-content-area');
 
-            const upiFields = document.getElementById('upi-fields');
-            const cardFields = document.getElementById('card-fields');
-            const paymentMethodRadios = document.querySelectorAll('input[name="paymentMethod"]');
-
-            let currentPlan = null; // To store the selected plan details
+            let currentPlan = null; // Stores the selected plan details
 
             // Function to show the modal with dynamic content
             function showModal(contentHtml) {
                 modalContentArea.innerHTML = contentHtml;
-                statusModal.style.display = 'flex'; // Make it visible first
-                // Use a small timeout to allow display change to apply before opacity transition
+                statusModal.style.display = 'flex';
                 setTimeout(() => {
-                    statusModal.classList.add('active'); // Then trigger opacity transition
-                }, 10); // Small delay, adjust if needed
+                    statusModal.classList.add('active');
+                }, 10);
             }
 
             // Function to hide the modal
             function hideModal() {
-                statusModal.classList.remove('active'); // Trigger fade-out and transform
+                statusModal.classList.remove('active');
                 statusModal.addEventListener('transitionend', function handler() {
-                    statusModal.style.display = 'none'; // Hide after transition
+                    statusModal.style.display = 'none';
                     statusModal.removeEventListener('transitionend', handler);
                 }, { once: true });
+            }
+
+            // --- IMPORTANT: Replace with your actual Razorpay Key ID ---
+            // You can get this from your Razorpay Dashboard (Settings -> API Keys)
+            // For testing, use a test key. For production, you MUST use a backend to generate orders for security.
+            const RAZORPAY_KEY_ID = 'rzp_test_xxxxxxxxxxxxxx'; // REPLACE THIS WITH YOUR ACTUAL KEY ID!
+
+            // Placeholder for WhatsApp Confirmation (requires a backend API in real use)
+            // In a real application, this function would make an AJAX call to your backend
+            // Your backend would then use a service like WhatsApp Business API to send the message.
+            function sendWhatsAppConfirmation(phone, planName, price, memberId) {
+                const message = `प्रिय सदस्य, इंडियन इंक़लाब पार्टी में आपकी ${planName} सदस्यता (₹${price}) सफल रही। आपकी सदस्य आईडी है: ${memberId}। आपके समर्थन के लिए धन्यवाद!`;
+                console.log("WhatsApp Confirmation (simulated):", message);
+                /*
+                fetch('/api/send-whatsapp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ to: phone, message: message })
+                })
+                .then(response => response.json())
+                .then(data => console.log('WhatsApp API response:', data))
+                .catch(error => console.error('Error sending WhatsApp:', error));
+                */
+            }
+
+            // Placeholder for SMS Confirmation (requires a backend API in real use)
+            // In a real application, this function would make an AJAX call to your backend
+            // Your backend would then use an SMS gateway service (e.g., Twilio, Msg91) to send the message.
+            function sendSMSConfirmation(phone, planName, price, memberId) {
+                const message = `IIP: आपकी ${planName} सदस्यता (₹${price}) सफल रही। आईडी: ${memberId}। धन्यवाद!`;
+                console.log("SMS Confirmation (simulated):", message);
+                /*
+                fetch('/api/send-sms', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ to: phone, message: message })
+                })
+                .then(response => response.json())
+                .then(data => console.log('SMS API response:', data))
+                .catch(error => console.error('Error sending SMS:', error));
+                */
             }
 
             // Event listeners for plan selection
             selectPlanButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const planName = button.dataset.plan;
-                    const planPrice = button.dataset.price; // Price in Rupees
+                    const planPrice = parseInt(button.dataset.price); // Ensure price is an integer
 
                     currentPlan = { name: planName, price: planPrice };
 
                     summaryPlanName.textContent = planName;
-                    summaryPlanPrice.textContent = `₹${planPrice}`; // Display with Rupee symbol
+                    summaryPlanPrice.textContent = `₹${planPrice}`;
 
-                    // Hide plan selection, show payment form
+                    // Show personal information form, hide plan selection
                     if (membershipSelectionSection) membershipSelectionSection.classList.add('hidden');
                     if (memberPaymentFormSection) memberPaymentFormSection.classList.remove('hidden');
 
-                    // Reset form and set default payment method to UPI
-                    if (membershipPaymentForm) membershipPaymentForm.reset();
-                    const defaultUpiRadio = document.querySelector('input[name="paymentMethod"][value="upi"]');
-                    if (defaultUpiRadio) {
-                        defaultUpiRadio.checked = true;
-                    }
-                    if (upiFields) upiFields.classList.remove('hidden');
-                    if (cardFields) cardFields.classList.add('hidden');
-                    // Manually trigger change to set required attributes correctly
-                    if (defaultUpiRadio) defaultUpiRadio.dispatchEvent(new Event('change'));
+                    if (membershipPaymentForm) membershipPaymentForm.reset(); // Clear form fields for new entry
                 });
             });
 
@@ -1504,56 +1603,25 @@
                 });
             }
 
-            // Handle payment method radio button changes
-            paymentMethodRadios.forEach(radio => {
-                radio.addEventListener('change', (event) => {
-                    if (event.target.value === 'upi') {
-                        if (upiFields) upiFields.classList.remove('hidden');
-                        if (cardFields) cardFields.classList.add('hidden');
-                        // Set required attributes for UPI fields
-                        document.getElementById('upi-id')?.setAttribute('required', 'required');
-                        // Remove required attributes from card fields (using optional chaining for safety)
-                        document.getElementById('card-number')?.removeAttribute('required');
-                        document.getElementById('expiry-date')?.removeAttribute('required');
-                        document.getElementById('cvv')?.removeAttribute('required');
-                        document.getElementById('zip-code')?.removeAttribute('required');
-                        document.getElementById('card-holder-name')?.removeAttribute('required');
-                    } else if (event.target.value === 'card') {
-                        if (upiFields) upiFields.classList.add('hidden');
-                        if (cardFields) cardFields.classList.remove('hidden');
-                        // Set required attributes for Card fields
-                        document.getElementById('upi-id')?.removeAttribute('required');
-                        // Add required attributes to card fields
-                        document.getElementById('card-number')?.setAttribute('required', 'required');
-                        document.getElementById('expiry-date')?.setAttribute('required', 'required');
-                        document.getElementById('cvv')?.setAttribute('required', 'required');
-                        document.getElementById('zip-code')?.setAttribute('required', 'required');
-                        document.getElementById('card-holder-name')?.setAttribute('required', 'required');
-                    }
-                });
-            });
-
-            // Simulate form submission
+            // Handle form submission and trigger Razorpay
             if (membershipPaymentForm) {
                 membershipPaymentForm.addEventListener('submit', async (event) => {
-                    event.preventDefault(); // Prevent actual form submission
+                    event.preventDefault(); // Prevent default form submission
 
-                    // Collect member information
-                    const memberName = document.getElementById('memberName').value;
-                    const memberPhone = document.getElementById('memberPhone').value;
-                    const memberAddress = document.getElementById('memberAddress').value;
-                    const memberEmail = document.getElementById('memberEmail').value;
-                    const memberVoterID = document.getElementById('memberVoterID').value;
-                    const selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value;
+                    const memberName = document.getElementById('memberName').value.trim();
+                    const memberPhone = document.getElementById('memberPhone').value.trim();
+                    const memberAddress = document.getElementById('memberAddress').value.trim();
+                    const memberEmail = document.getElementById('memberEmail').value.trim();
+                    const memberVoterID = document.getElementById('memberVoterID').value.trim();
 
-                    // Basic client-side validation for required fields
-                    if (!memberName || !memberPhone || !memberAddress || !selectedPaymentMethod) {
+                    // Basic client-side validation
+                    if (!memberName || !memberPhone || !memberAddress || !currentPlan) {
                         showModal(`
                             <svg class="mx-auto h-16 w-16 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                             <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">त्रुटि!</h3>
-                            <p class="text-gray-700 mb-4">कृपया सभी आवश्यक फ़ील्ड भरें और भुगतान विधि चुनें।</p>
+                            <p class="text-gray-700 mb-4">कृपया सभी आवश्यक व्यक्तिगत जानकारी भरें और एक सदस्यता योजना चुनें।</p>
                             <button id="modal-ok-button" class="btn-primary text-white font-semibold py-2 px-6 rounded-md shadow hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
                                 ठीक है
                             </button>
@@ -1564,41 +1632,6 @@
                         }
                         return;
                     }
-
-                    // Additional payment specific validation based on selected method
-                    let paymentFieldMissing = false;
-                    if (selectedPaymentMethod === 'upi') {
-                        if (!document.getElementById('upi-id')?.value) {
-                            paymentFieldMissing = true;
-                        }
-                    } else if (selectedPaymentMethod === 'card') {
-                        if (!document.getElementById('card-number')?.value ||
-                            !document.getElementById('expiry-date')?.value ||
-                            !document.getElementById('cvv')?.value ||
-                            !document.getElementById('zip-code')?.value ||
-                            !document.getElementById('card-holder-name')?.value) {
-                            paymentFieldMissing = true;
-                        }
-                    }
-
-                    if (paymentFieldMissing) {
-                        showModal(`
-                            <svg class="mx-auto h-16 w-16 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">त्रुटि!</h3>
-                            <p class="text-gray-700 mb-4">कृपया चयनित भुगतान विधि के लिए सभी आवश्यक विवरण भरें।</p>
-                            <button id="modal-ok-button" class="btn-primary text-white font-semibold py-2 px-6 rounded-md shadow hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
-                                ठीक है
-                            </button>
-                        `);
-                        const modalOkButton = document.getElementById('modal-ok-button');
-                        if (modalOkButton) {
-                            modalOkButton.onclick = hideModal;
-                        }
-                        return;
-                    }
-
 
                     // Show processing modal
                     showModal(`
@@ -1607,53 +1640,82 @@
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
                         <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">भुगतान संसाधित हो रहा है...</h3>
-                        <p class="text-gray-700 mb-4">कृपया प्रतीक्षा करें।</p>
+                        <p class="text-gray-700 mb-4">आपको जल्द ही Razorpay पॉप-अप दिखाई देगा।</p>
                     `);
 
-                    // Simulate network request delay for payment
-                    await new Promise(resolve => setTimeout(resolve, 2500)); // Simulate 2.5 seconds payment processing
+                    // Razorpay options
+                    const options = {
+                        key: RAZORPAY_KEY_ID, // YOUR KEY ID
+                        amount: currentPlan.price * 100, // Amount in paise (e.g., 20000 for ₹200)
+                        currency: "INR",
+                        name: "इंडियन इंक़लाब पार्टी (I.I.P)",
+                        description: `${currentPlan.name} सदस्यता`,
+                        image: "https://placehold.co/1536x307/000000/FFFFFF?text=I.I.P+LOGO", // Replace with your actual logo URL
+                        handler: function (response) {
+                            // Payment successful callback
+                            console.log("Razorpay Payment ID:", response.razorpay_payment_id);
+                            console.log("Razorpay Order ID:", response.razorpay_order_id);
+                            console.log("Razorpay Signature:", response.razorpay_signature);
 
-                    // --- Payment Simulation Result (Always Success for this example) ---
-                    const paymentSuccess = true; // In a real app, this would be determined by payment gateway response
+                            // --- Generate Member ID ---
+                            // For a real application, this should be generated and stored securely on your backend.
+                            // This client-side generation is for demonstration purposes only.
+                            const memberId = 'MEM-' + Math.random().toString(36).substring(2, 10).toUpperCase();
 
-                    if (paymentSuccess) {
-                        // Simulate WhatsApp Confirmation
-                        console.log(`WhatsApp: Confirmation for ${currentPlan.name} membership (₹${currentPlan.price}) sent to ${memberPhone}.`);
-                        // Simulate SMS Confirmation
-                        console.log(`SMS: Confirmation for ${currentPlan.name} membership (₹${currentPlan.price}) sent to ${memberPhone}.`);
+                            showModal(`
+                                <svg class="mx-auto h-16 w-16 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">भुगतान सफल!</h3>
+                                <p class="text-gray-700 mb-2">आप अब एक ${currentPlan.name} सदस्य हैं।</p>
+                                <p class="text-gray-700 mb-4 font-semibold">आपकी सदस्य ID: <span class="text-blue-600">${memberId}</span></p>
+                                <p class="text-gray-600 text-sm mb-4">आपको जल्द ही एक पुष्टि WhatsApp और SMS प्राप्त होगा।</p>
+                                <button id="modal-ok-button" class="btn-secondary text-white font-semibold py-2 px-6 rounded-md shadow hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50">
+                                    ठीक है
+                                </button>
+                            `);
+                            const modalOkButton = document.getElementById('modal-ok-button');
+                            if (modalOkButton) {
+                                modalOkButton.onclick = () => {
+                                    hideModal();
+                                    // Reset form and return to plan selection
+                                    if (membershipPaymentForm) membershipPaymentForm.reset();
+                                    if (memberPaymentFormSection) memberPaymentFormSection.classList.add('hidden');
+                                    if (membershipSelectionSection) membershipSelectionSection.classList.remove('hidden');
+                                };
+                            }
 
-                        // Display success modal
-                        showModal(`
-                            <svg class="mx-auto h-16 w-16 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">भुगतान सफल!</h3>
-                            <p class="text-gray-700 mb-4">आप अब एक ${currentPlan.name} सदस्य हैं।</p>
-                            <p class="text-gray-600 text-sm mb-4">हमने आपके फ़ोन नंबर पर एक पुष्टि WhatsApp और SMS भेजा है।</p>
-                            <button id="modal-ok-button" class="btn-secondary text-white font-semibold py-2 px-6 rounded-md shadow hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50">
-                                ठीक है
-                            </button>
-                        `);
-                        const modalOkButton = document.getElementById('modal-ok-button');
-                        if (modalOkButton) {
-                            modalOkButton.onclick = () => {
-                                hideModal();
-                                // Optional: Redirect to a thank you page or homepage
-                                // window.location.href = '/thank-you';
-                                // Reset the form and return to plan selection after success
-                                if (membershipPaymentForm) membershipPaymentForm.reset();
-                                if (memberPaymentFormSection) memberPaymentFormSection.classList.add('hidden');
-                                if (membershipSelectionSection) membershipSelectionSection.classList.remove('hidden');
-                            };
+                            // Trigger simulated WhatsApp and SMS confirmations with the new member ID
+                            sendWhatsAppConfirmation(memberPhone, currentPlan.name, currentPlan.price, memberId);
+                            sendSMSConfirmation(memberPhone, currentPlan.name, currentPlan.price, memberId);
+
+                        },
+                        prefill: {
+                            name: memberName,
+                            email: memberEmail,
+                            contact: memberPhone
+                        },
+                        notes: {
+                            address: memberAddress,
+                            voter_id: memberVoterID,
+                            plan_name: currentPlan.name
+                        },
+                        theme: {
+                            color: "#3B82F6" // Tailwind blue-500
                         }
-                    } else {
-                        // Display error modal (for a real scenario)
+                    };
+
+                    const rzp1 = new Razorpay(options);
+
+                    rzp1.on('payment.failed', function (response) {
+                        console.error("Razorpay Payment Failed:", response.error);
                         showModal(`
                             <svg class="mx-auto h-16 w-16 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2A9 9 0 111 12a9 9 0 0118 0z"></path>
                             </svg>
                             <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-2">भुगतान असफल!</h3>
                             <p class="text-gray-700 mb-4">आपके भुगतान में कोई समस्या आ गई। कृपया पुनः प्रयास करें।</p>
+                            <p class="text-gray-600 text-sm">त्रुटि: ${response.error.description || 'अज्ञात त्रुटि'}</p>
                             <button id="modal-ok-button" class="btn-primary text-white font-semibold py-2 px-6 rounded-md shadow hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
                                 ठीक है
                             </button>
@@ -1662,7 +1724,13 @@
                         if (modalOkButton) {
                             modalOkButton.onclick = hideModal;
                         }
-                    }
+                    });
+
+                    // Open Razorpay after a slight delay to allow modal to show
+                    setTimeout(() => {
+                        rzp1.open();
+                    }, 500); // 500ms delay
+
                 });
             }
 
@@ -1670,7 +1738,7 @@
             if (closeModalButton) closeModalButton.addEventListener('click', hideModal);
             if (statusModal) {
                 statusModal.addEventListener('click', (e) => {
-                    if (e.target === statusModal) {
+                    if (e.target === statusModal) { // Only close if clicking on the overlay itself
                         hideModal();
                     }
                 });
@@ -1685,60 +1753,50 @@
 
             // Handle the "Join Us" buttons from the hero and get-involved sections
             const membershipBtnHero = document.getElementById('membershipBtnHero');
-            const membershipBtnSection = document.getElementById('membershipBtnSection');
+            const membershipBtnSection = document.getElementById('membershipBtnSection'); // Check if this ID exists in your main tt.html for proper functionality
             const membershipContentSection = document.getElementById('membership-content-section');
 
             if (membershipBtnHero) {
-                membershipBtnHero.addEventListener('click', (e) => {
+                membership
+                BtnHero.addEventListener('click', (e) => {
                     e.preventDefault();
                     if (membershipContentSection) {
                         membershipContentSection.scrollIntoView({ behavior: 'smooth' });
                     }
-                    // Ensure membership selection is visible when scrolling to the section
                     if (membershipSelectionSection) membershipSelectionSection.classList.remove('hidden');
-                    if (memberPaymentFormSection) memberPaymentFormSection.classList.add('hidden');
+                    if (memberPaymentFormSection) memberPaymentFormSection.classList.add('hidden'); // Hide form, show plan selection
                 });
             }
 
+            // This block handles a hypothetical 'membershipBtnSection' - ensure it exists in your actual tt.html
             if (membershipBtnSection) {
                 membershipBtnSection.addEventListener('click', (e) => {
                     e.preventDefault();
                     if (membershipContentSection) {
                         membershipContentSection.scrollIntoView({ behavior: 'smooth' });
                     }
-                    // Ensure membership selection is visible when scrolling to the section
                     if (membershipSelectionSection) membershipSelectionSection.classList.remove('hidden');
                     if (memberPaymentFormSection) memberPaymentFormSection.classList.add('hidden');
                 });
             }
 
-            // Also handle the "Donate Us" link in the header and get-involved section
-            // The existing `a href="payment.html"` should now link to `#membership-content-section`
-            // and trigger the same logic as the membership buttons.
-            document.querySelectorAll('a[href="payment.html"]').forEach(link => {
+            // Handle "Donate Us" links
+            document.querySelectorAll('a[href="#membership-content-section"]').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     if (membershipContentSection) {
                         membershipContentSection.scrollIntoView({ behavior: 'smooth' });
                     }
-                    // Optionally, you might want to automatically select "Active Member" for donations
-                    // For now, it will just show the membership selection
+                    // When clicking "Donate Us", we show the membership selection first
                     if (membershipSelectionSection) membershipSelectionSection.classList.remove('hidden');
                     if (memberPaymentFormSection) memberPaymentFormSection.classList.add('hidden');
                 });
             });
 
-
             // Set current year in footer dynamically
             const currentYearFooter = document.getElementById('current-year-footer');
             if (currentYearFooter) {
                 currentYearFooter.textContent = new Date().getFullYear();
-            }
-
-            // Initial setup for payment method fields based on default checked radio
-            const initialUpiRadio = document.querySelector('input[name="paymentMethod"][value="upi"]');
-            if (initialUpiRadio) {
-                initialUpiRadio.dispatchEvent(new Event('change'));
             }
         });
     </script>
